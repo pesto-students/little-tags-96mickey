@@ -33,6 +33,7 @@ const spaces = {
   space_25: "25px",
   space_28: "28px",
   space_30: "30px",
+  space_36: "36px",
 };
 
 const fontSizes = {

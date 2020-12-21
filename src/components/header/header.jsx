@@ -1,10 +1,6 @@
-import React from 'react';
-import { HeaderStyled } from './header.styled';
+import React from "react";
+import { HeaderStyled } from "./header.styled";
 
 export const Header = (props) => {
-    return (
-        <HeaderStyled textColor='black'>
-            hello
-        </HeaderStyled>
-    );
-}
+  return <HeaderStyled textColor="black">hello</HeaderStyled>;
+};
