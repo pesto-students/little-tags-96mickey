@@ -13,8 +13,8 @@ const checkType = (props) => {
     case GHOST:
       return {
         color: props.theme.colors.dark,
-        backgroundColor: "#ebebeb",
-        borderColor: "#ebebeb",
+        backgroundColor: props.theme.colors.gallery,
+        borderColor: props.theme.colors.gallery,
       };
 
     case INVERSE:

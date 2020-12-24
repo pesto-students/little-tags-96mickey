@@ -22,7 +22,7 @@ const renderCategories = (data) => (
             key={`ProductSectionCategory-${index}`}
             displayText={category.label}
             image={category.img}
-            link="/prod"
+            link={category.goTo}
           />
         </ProductSectionCategoryImageStyled>
       );
