@@ -1,18 +1,67 @@
 import React from "react";
-import Drawer from "components/drawer/drawer";
-import { CategoryCard } from "components/category-card/category-card";
-import { FixedHeightDiv } from "./home.styled";
+import ProductSectionComponent from "../../components/product-section/product-section.component";
+
+// styles
+import {
+  HomeBannerImageStyled,
+  HomeBannerHeroText,
+  HomeBannerTitleTextStyled,
+  HomeBannerSubTitleLineStyled,
+  HomeBannerSubTitleWrapperStyled,
+  HomeBannerSubTitleStyled,
+} from "./home.styled";
+
+const productData = {
+  title: "Most in Demand",
+  categories: [
+    {
+      label: "T - Shirts",
+      img: require("./../../assets/images/tshirts.jpg").default,
+    },
+    {
+      label: "Jeans",
+      img: require("./../../assets/images/jeans.jpg").default,
+    },
+    {
+      label: "Backpacks",
+      img: require("./../../assets/images/backpack.jpg").default,
+    },
+    {
+      label: "Charm Necklace",
+      img: require("./../../assets/images/watches.jpg").default,
+    },
+  ],
+};
+
 export const Home = () => {
+  const handleCategoryClick = (evt) => {
+    console.log(evt);
+  };
+
   return (
     <div>
-      <Drawer></Drawer>
-      <FixedHeightDiv>
-        <CategoryCard 
-          displayText="Sample Text" 
-          image={process.env.PUBLIC_URL + '/yellow-jacket.png'} 
-          link="/prod"
+      <HomeBannerImageStyled
+        imgUrl={require("./../../assets/images/banner.jpg").default}
+      >
+        <HomeBannerHeroText>
+          <HomeBannerTitleTextStyled>
+            Online Flee Market for Clothes
+          </HomeBannerTitleTextStyled>
+          <HomeBannerSubTitleWrapperStyled>
+            <HomeBannerSubTitleLineStyled />
+            <HomeBannerSubTitleStyled>
+              Its time to recycle
+            </HomeBannerSubTitleStyled>
+            <HomeBannerSubTitleLineStyled />
+          </HomeBannerSubTitleWrapperStyled>
+        </HomeBannerHeroText>
+      </HomeBannerImageStyled>
+      <section className="product-section">
+        <ProductSectionComponent
+          productData={productData}
+          handleCategoryClick={handleCategoryClick}
         />
-      </FixedHeightDiv>
+      </section>
     </div>
   );
 };
