@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 // component
 import Button from "./../button/button.component";
@@ -20,11 +21,13 @@ import {
   DrawerContentTitleWrapperStyled,
 } from "./drawer.styled";
 
-const RenderSubMenu = ({ name, navigateTo }) => {
+const RenderSubMenu = ({ name, goTo }) => {
   return (
-    <DrawerItemStyled onClick={() => console.log("Clicked Label" + name)}>
-      {name}
-    </DrawerItemStyled>
+    <Link to={goTo}>
+      <DrawerItemStyled onClick={() => console.log("Clicked Label" + name)}>
+        {name}
+      </DrawerItemStyled>
+    </Link>
   );
 };
 
@@ -55,7 +58,7 @@ const DrawerContents = ({ onClose, menuList, username, sidebarTitle }) => (
     </DrawerContentTitleWrapperStyled>{" "}
     <DrawerContentUsernameBoxWrapperStyled>
       <DrawerContentUsernameIconStyled>
-        <IconComponent name={"fa-user"} size="25px" />
+        <IconComponent name="fa-user" size="25px" color="white" />
       </DrawerContentUsernameIconStyled>
       <DrawerContentUsernameContentWrapperStyled>
         Hey, {username}

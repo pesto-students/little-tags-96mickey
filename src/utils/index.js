@@ -1,1 +1,1 @@
-export * from './hex-to-rgba';
+export * from "./hex-to-rgba";

@@ -2,6 +2,8 @@
 
 Live url ===> https://agitated-golick-7be346.netlify.app/
 
+Dev url ===> https://nifty-davinci-9fcbab.netlify.app/
+
 Pesto Tech is proudly launching its own Online Clothing Store named **Little Tags**. You have been awarded with the project and you need to design and develop this project which should meet the requirements mentioned in the MVP below.
 
 # MVP Requirement
