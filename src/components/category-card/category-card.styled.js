@@ -42,6 +42,6 @@ export const CategoryInfo = styled.div`
   align-items: flex-start;
   padding: 1rem 2rem;
   font-size: ${(props) => props.theme.fontSizes.font_20};
-  color: white;
+  color: ${(props) => props.theme.colors.light};
   background-color: ${(props) => hexToRGBA(props.theme.colors.dark, 0.5)};
 `;

@@ -17,18 +17,22 @@ const productData = {
     {
       label: "T - Shirts",
       img: require("./../../assets/images/tshirts.jpg").default,
+      goTo: "/prod",
     },
     {
       label: "Jeans",
       img: require("./../../assets/images/jeans.jpg").default,
+      goTo: "/prod",
     },
     {
       label: "Backpacks",
       img: require("./../../assets/images/backpack.jpg").default,
+      goTo: "/prod",
     },
     {
       label: "Charm Necklace",
       img: require("./../../assets/images/watches.jpg").default,
+      goTo: "/prod",
     },
   ],
 };

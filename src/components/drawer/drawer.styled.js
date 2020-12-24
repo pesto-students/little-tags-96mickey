@@ -67,7 +67,7 @@ export const DrawerContentTitleStyled = styled.span`
   font-size: ${(props) => props.theme.fontSizes.font_30};
   line-height: 1.2;
   text-align: left;
-  color: #000000;
+  color: ${(props) => props.theme.colors.dark};
 `;
 
 export const DrawerButtonWrapper = styled.div`
@@ -102,7 +102,7 @@ export const DrawerContentUsernameContentWrapperStyled = styled.div`
   font-size: ${(props) => props.theme.fontSizes.font_16};
   line-height: 1.2;
   text-align: left;
-  color: #ffffff;
+  color: ${(props) => props.theme.colors.light};
 `;
 
 export const DrawerContentUsernameIconStyled = styled.div`
@@ -112,7 +112,7 @@ export const DrawerContentUsernameIconStyled = styled.div`
     ${(props) => props.theme.colors.light};
   border-radius: 50%;
   margin-right: ${(props) => props.theme.spaces.space_10};
-  background-color: white;
+  color: ${(props) => props.theme.colors.light};
   display: flex;
   justify-content: center;
 `;

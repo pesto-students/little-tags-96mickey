@@ -21,4 +21,5 @@ export const spaces = {
   space_28: "28px",
   space_30: "30px",
   space_36: "36px",
+  space_50: "50px",
 };

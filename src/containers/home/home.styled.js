@@ -22,7 +22,7 @@ export const HomeBannerHeroText = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: white;
+  color: ${(props) => props.theme.colors.light};
 `;
 
 export const HomeBannerTitleTextStyled = styled.div`
