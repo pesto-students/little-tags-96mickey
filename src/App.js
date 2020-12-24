@@ -1,6 +1,6 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
-import { NotFound } from "components";
+import { NotFound, Header, Footer } from "components";
 import { connect } from "react-redux";
 import { simpleAction } from "./actions";
 import { Home } from "containers";
@@ -13,21 +13,17 @@ const mapStateToProps = (state) => ({
   ...state,
 });
 
-function App(props) {
+function App() {
   return (
     <div className="App">
-      <pre>{JSON.stringify(props)}</pre>
-      <button onClick={(e) => action(e, props)}>Test redux action</button>
+      <Header />
       <Switch>
         <Route path="/" component={Home} exact />
         <Route component={NotFound} />
       </Switch>
+      <Footer />
     </div>
   );
 }
-
-const action = (event, props) => {
-  props.simpleAction();
-};
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
