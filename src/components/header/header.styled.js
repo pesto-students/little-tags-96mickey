@@ -4,12 +4,30 @@ export const HeaderWrapperStyled = styled.div`
   position: fixed;
   top: 0;
   z-index: 99;
+  width: 100%;
+  background-color: ${(props) =>
+    props.scrollPosition > 100 && props.theme.colors.light};
 `;
 
 export const HeaderStyled = styled.div`
-  font-family: MillionNotes;
-  font-size: ${(props) => props.theme.fontSizes.font_30};
   width: 100%;
-  background-color: inherit;
-  color: ${(props) => props.textColor};
+  background-color: transparent;
+  margin: 25px 45px;
+  display: flex;
+  align-items: center;
+`;
+
+export const HeaderBrandNameStyled = styled.div`
+  font-family: ${(props) => props.theme.headingFont};
+  font-size: 40px;
+  line-height: 1.2;
+  color: ${(props) =>
+    props.isHeaderInverse ? props.theme.colors.dark : props.theme.colors.light};
+  margin: 0 30px;
+  position: relative;
+  top: 5px;
+`;
+
+export const HeaderComponentInputWrapperStyled = styled.div`
+  width: 50%;
 `;

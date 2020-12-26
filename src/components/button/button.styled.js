@@ -35,11 +35,9 @@ const checkType = (props) => {
 export const ButtonStyled = styled.button`
   width: 100%;
   font-family: ${(props) => props.theme.bodyFont};
-  font-size: ${(props) => props.theme.fontSizes.font_11};
+  font-size: ${(props) => props.theme.fontSizes.font_20};
   padding: ${(props) => props.theme.spaces.space_15} 0;
   border-radius: ${(props) => props.theme.spaces.space_6};
-  box-shadow: 0 0 ${(props) => props.theme.spaces.space_xs} 0
-    ${(props) => hexToRGBA(props.theme.colors.dark, 0.16)};
   border: solid ${(props) => props.theme.spaces.space_1}
     ${(props) => props.theme.colors.dark};
   text-align: center;
@@ -50,5 +48,10 @@ export const ButtonStyled = styled.button`
   ${checkType};
   :focus {
     outline: 0;
+  }
+
+  :hover {
+    box-shadow: 0 0 ${(props) => props.theme.spaces.space_xs} 0
+      ${(props) => hexToRGBA(props.theme.colors.dark, 0.16)};
   }
 `;

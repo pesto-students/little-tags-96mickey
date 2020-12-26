@@ -3,4 +3,7 @@ export * from "./header";
 export * from "./footer";
 export * from "./layout";
 export * from "./not-found";
-export * from './category-card';
+export * from "./category-card";
+export * from "./icon-component";
+export * from "./drawer";
+export * from "./product-section";

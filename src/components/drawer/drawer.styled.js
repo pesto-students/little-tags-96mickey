@@ -5,12 +5,11 @@ import { hexToRGBA } from "./../../utils/hex-to-rgba";
 export const DrawerItemStyled = styled.div`
   cursor: pointer;
   font-family: ${(props) => props.theme.bodyFont};
-  font-size: ${(props) => props.theme.fontSizes.font_14};
+  font-size: ${(props) => props.theme.fontSizes.font_24};
   line-height: 1.19;
   color: ${(props) => props.theme.colors.dark};
-  padding: ${(props) => props.theme.spaces.space_10}
-    ${(props) => props.theme.spaces.space_28}
-    ${(props) => props.theme.spaces.space_10};
+  padding: ${(props) => props.theme.spaces.space_20}
+    ${(props) => props.theme.spaces.space_36};
   :hover {
     background-color: ${(props) => props.theme.colors.dark};
     color: ${(props) => props.theme.colors.light};
@@ -18,10 +17,10 @@ export const DrawerItemStyled = styled.div`
 `;
 
 export const DrawerContainerWrapperStyled = styled.div`
-  width: 270px;
+  width: 450px;
   background-color: white;
   transition: all 0.3s ease-in-out;
-  transform: translate(-270px);
+  transform: translate(-450px);
   position: fixed;
   top: 0;
   bottom: 0;
@@ -63,15 +62,15 @@ export const DrawerContainerOverlayStyled = styled.div`
 `;
 
 export const DrawerContentTitleStyled = styled.span`
-  font-family: MillionNotes;
-  font-size: ${(props) => props.theme.fontSizes.font_30};
+  font-family: ${(props) => props.theme.headingFont};
+  font-size: ${(props) => props.theme.fontSizes.font_48};
   line-height: 1.2;
   text-align: left;
   color: ${(props) => props.theme.colors.dark};
 `;
 
 export const DrawerButtonWrapper = styled.div`
-  width: 230px;
+  width: 430px;
   min-height: 67px;
   align-self: center;
 `;
@@ -81,7 +80,7 @@ export const DrawerMenuTitleStyled = styled.div`
     ${(props) => props.theme.spaces.space_25}
     ${(props) => props.theme.spaces.space_14};
   font-family: ${(props) => props.theme.headingFont};
-  font-size: ${(props) => props.theme.fontSizes.font_16};
+  font-size: ${(props) => props.theme.fontSizes.font_24};
   line-height: 1.2;
   text-align: left;
   color: ${(props) => props.theme.colors.dark};
@@ -91,7 +90,7 @@ export const DrawerContentUsernameBoxWrapperStyled = styled.div`
   background-color: ${(props) => props.theme.colors.dark};
   margin: ${(props) => props.theme.spaces.space_20} auto
     ${(props) => props.theme.spaces.space_30};
-  padding: ${(props) => props.theme.spaces.space_8}
+  padding: ${(props) => props.theme.spaces.space_xs}
     ${(props) => props.theme.spaces.space_20};
   display: flex;
   align-items: center;
@@ -99,15 +98,14 @@ export const DrawerContentUsernameBoxWrapperStyled = styled.div`
 
 export const DrawerContentUsernameContentWrapperStyled = styled.div`
   font-family: ${(props) => props.theme.bodyFont};
-  font-size: ${(props) => props.theme.fontSizes.font_16};
+  font-size: ${(props) => props.theme.fontSizes.font_34};
   line-height: 1.2;
-  text-align: left;
   color: ${(props) => props.theme.colors.light};
 `;
 
 export const DrawerContentUsernameIconStyled = styled.div`
-  width: 25px;
-  height: 25px;
+  width: 40px;
+  height: 40px;
   border: solid ${(props) => props.theme.spaces.space_2}
     ${(props) => props.theme.colors.light};
   border-radius: 50%;
@@ -115,6 +113,7 @@ export const DrawerContentUsernameIconStyled = styled.div`
   color: ${(props) => props.theme.colors.light};
   display: flex;
   justify-content: center;
+  align-items: center;
 `;
 
 export const DrawerContentsIconWrapperStyled = styled.span`
