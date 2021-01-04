@@ -126,3 +126,9 @@ export const DrawerContentTitleWrapperStyled = styled.div`
   justify-content: space-between;
   padding: 0 ${(props) => props.theme.spaces.space_20};
 `;
+
+export const HeaderUserLogo = styled.img`
+  width: 35px;
+  height: 35px;
+  border-radius: 100%;
+`;

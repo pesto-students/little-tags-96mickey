@@ -31,3 +31,21 @@ export const HeaderBrandNameStyled = styled.div`
 export const HeaderComponentInputWrapperStyled = styled.div`
   width: 50%;
 `;
+
+export const HeaderLoginStyled = styled.div`
+  margin-left: 40px;
+  font-family: ${(props) => props.theme.bodyFont};
+  font-size: 30px;
+  line-height: 1.2;
+  text-align: left;
+  color: ${(props) =>
+    props.isHeaderInverse ? props.theme.colors.dark : props.theme.colors.light};
+  cursor: pointer;
+`;
+
+export const HeaderUserLogo = styled.img`
+  width: 35px;
+  height: 35px;
+  border-radius: 100%;
+  margin-right: 10px;
+`;
