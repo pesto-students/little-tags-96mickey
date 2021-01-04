@@ -10,5 +10,4 @@ export const LayoutStyled = styled.div`
 
 export const MainSection = styled.div`
   flex-grow: 2;
-  background-color: ${(props) => props.theme.colors.aeroBlue};
 `;

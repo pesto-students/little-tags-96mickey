@@ -10,13 +10,16 @@ import Theme from "./theme";
 import { Provider } from "react-redux";
 import configureStore from "./store";
 import { BrowserRouter } from "react-router-dom";
+import { ScrollToTop } from "components/scroll-to-top/scroll-to-top";
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={configureStore()}>
       <ThemeProvider theme={Theme}>
         <BrowserRouter>
+        <ScrollToTop>
           <App />
+          </ScrollToTop>
         </BrowserRouter>
       </ThemeProvider>
     </Provider>

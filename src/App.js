@@ -3,14 +3,16 @@ import { Route, Switch } from "react-router-dom";
 import { NotFound, Header, Footer } from "components";
 import { connect } from "react-redux";
 import { simpleAction } from "./actions";
-import { Home } from "containers";
+import { Home, ProductList, ProductDescription } from "containers";
+import './App.css';
 
 const contactInfoData = [
-  { key: "Phone:", value: "(+91) 9876 543 210" },
+  { key: "Phone:", value: "(+91) 9876 543 210", goTo: "info/contact" },
   {
     key: "Address:",
     value:
       "1418 Riverwood Drive, Suite 3245 Cottonwood, CA 96052, United State",
+    goTo: "info/address"
   },
 ];
 
@@ -41,10 +43,14 @@ function App() {
   return (
     <div className="App">
       <Header />
+      <div className="main-section">
       <Switch>
         <Route path="/" component={Home} exact />
+        <Route path="/prod/:id/description" component={ProductDescription}/>
+        <Route path="/prod/:type" component={ProductList} />
         <Route component={NotFound} />
       </Switch>
+      </div>
       <Footer {...{ contactInfoData, cardUrls, categories }} />
     </div>
   );

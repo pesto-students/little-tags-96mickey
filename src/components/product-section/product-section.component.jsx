@@ -17,6 +17,7 @@ const renderCategories = (data) => (
         <ProductSectionCategoryImageStyled
           width={category.img.offsetWidth}
           height={category.img.offsetHeight}
+          key={index}
         >
           <CategoryCard
             key={`ProductSectionCategory-${index}`}

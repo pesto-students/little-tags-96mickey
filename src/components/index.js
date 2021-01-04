@@ -7,3 +7,4 @@ export * from "./category-card";
 export * from "./icon-component";
 export * from "./drawer";
 export * from "./product-section";
+export * from "./product-card";

@@ -15,24 +15,24 @@ const productData = {
   title: "Most in Demand",
   categories: [
     {
-      label: "T - Shirts",
+      label: "T-Shirts",
       img: require("./../../assets/images/tshirts.jpg").default,
-      goTo: "/prod",
+      goTo: "/prod/T-Shirts",
     },
     {
       label: "Jeans",
       img: require("./../../assets/images/jeans.jpg").default,
-      goTo: "/prod",
+      goTo: "/prod/Jeans",
     },
     {
       label: "Backpacks",
       img: require("./../../assets/images/backpack.jpg").default,
-      goTo: "/prod",
+      goTo: "/prod/Backpacks",
     },
     {
       label: "Charm Necklace",
       img: require("./../../assets/images/watches.jpg").default,
-      goTo: "/prod",
+      goTo: "/prod/Necklace",
     },
   ],
 };

@@ -19,7 +19,7 @@ import {
 
 const renderContactInfoData = (contactInfoData) =>
   contactInfoData.map((contact, index) => (
-    <FooterCategoryLinkStyled goTo={contact.goTo}>
+    <FooterCategoryLinkStyled key={index} goTo={contact.goTo}>
       <Link to={contactInfoData.goTo}>
         <FooterCategoryTextStyled
           key={`FooterContactInfo-${index}`}
