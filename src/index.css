@@ -31,3 +31,39 @@ body {
   margin: 0;
   padding: 0;
 }
+
+a:hover {
+  text-decoration: none;
+}
+
+.ReactModal__Overlay.ReactModal__Overlay--after-open {
+  z-index: 100;
+}
+
+.google-button {
+  width: 100%;
+  font-family: "Gotham-Book", sans-serif !important;
+  font-size: 20px !important;
+  padding: 15px 0 !important;
+  border-radius: 6px !important;
+  border: solid 1px #000 !important;
+  text-align: center !important;
+  text-transform: uppercase !important;
+  font-weight: 500 !important;
+  cursor: pointer !important;
+  color: #fff !important;
+  background-color: #000 !important;
+  border-color: #000 !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.google-button div {
+  display: none;
+}
+
+.google-button span {
+  padding: 0 !important;
+}

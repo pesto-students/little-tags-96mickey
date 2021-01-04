@@ -1,4 +1,7 @@
+// vendor
 import React from "react";
+import { connect } from "react-redux";
+import { useSelector } from "react-redux";
 
 //styles
 import {
@@ -6,42 +9,26 @@ import {
   HeaderWrapperStyled,
   HeaderBrandNameStyled,
   HeaderComponentInputWrapperStyled,
+  HeaderLoginStyled,
+  HeaderUserLogo,
 } from "./header.styled";
 
 // components
 import DrawerContainer from "./../drawer/drawer-component";
 import IconComponent from "./../icon-component/icon-component";
 import Input from "./../input";
+import ModalComponent from "./../login-modal/login-modal.component";
 
-const menuList = [
-  {
-    name: "Categories",
-    subMenu: [
-      {
-        name: "Accessories",
-        goTo: "",
-      },
-      {
-        name: "Shirts",
-        goTo: "",
-      },
-      {
-        name: "Pants",
-        goTo: "",
-      },
-      {
-        name: "Jackets",
-        goTo: "",
-      },
-    ],
-  },
-];
+// constants
+import { menuList } from "./../../constants/header.constants";
 
 export const Header = (props) => {
+  const isLoggedIn = useSelector((state) => state.user.isLoggedIn);
+  const userDetails = useSelector((state) => state.user.userdetails);
   const [isOpen, setIsOpen] = React.useState(false);
+  const [isOpenModalContainer, setModal] = React.useState(false);
   const toggleDrawer = () => setIsOpen(!isOpen);
   const [scrollPosition, setScrollPosition] = React.useState(0);
-
   const handleScroll = () => {
     const position = window.pageYOffset;
     setScrollPosition(position);
@@ -55,6 +42,8 @@ export const Header = (props) => {
     };
   }, []);
 
+  const toggleModal = () => setModal(!isOpenModalContainer);
+
   const handleInputChange = (value) => {
     console.log(value);
   };
@@ -66,8 +55,9 @@ export const Header = (props) => {
         isOpen={isOpen}
         onClose={toggleDrawer}
         menuList={menuList}
-        username={"Karan"}
         sidebarTitle={"Little Tags"}
+        isLoggedIn={isLoggedIn}
+        userDetails={userDetails}
       />
 
       <HeaderStyled>
@@ -87,7 +77,34 @@ export const Header = (props) => {
             handleInputChange={handleInputChange}
           />
         </HeaderComponentInputWrapperStyled>
+
+        {isLoggedIn ? (
+          <HeaderLoginStyled isHeaderInverse={isHeaderInverse}>
+            <HeaderUserLogo
+              src={userDetails.imageUrl}
+              alt="User Icon"
+              srcset=""
+            />
+            {userDetails.username}
+          </HeaderLoginStyled>
+        ) : (
+          <HeaderLoginStyled
+            isHeaderInverse={isHeaderInverse}
+            onClick={toggleModal}
+          >
+            Log in / Sign up
+          </HeaderLoginStyled>
+        )}
+        <ModalComponent isOpen={isOpenModalContainer} onClose={toggleModal} />
       </HeaderStyled>
     </HeaderWrapperStyled>
   );
 };
+
+const mapStateToProps = (state) => {
+  return {
+    userState: state,
+  };
+};
+
+export default connect(mapStateToProps, null)(Header);

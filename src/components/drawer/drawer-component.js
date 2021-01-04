@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
 // component
 import Button from "./../button/button.component";
@@ -19,7 +20,11 @@ import {
   DrawerContentUsernameIconStyled,
   DrawerContentsIconWrapperStyled,
   DrawerContentTitleWrapperStyled,
+  HeaderUserLogo,
 } from "./drawer.styled";
+
+// constants
+import { LoggedInMenu } from "./../../constants/drawer.constants";
 
 const RenderSubMenu = ({ name, goTo }) => {
   return (
@@ -44,7 +49,13 @@ const DrawerItem = ({ name, subMenu }) => {
   );
 };
 
-const DrawerContents = ({ onClose, menuList, username, sidebarTitle }) => (
+const DrawerContents = ({
+  onClose,
+  menuList,
+  userDetails: { username, imageUrl },
+  sidebarTitle,
+  isLoggedIn,
+}) => (
   <DrawerContentWrapperStyled>
     <DrawerContentTitleWrapperStyled>
       <DrawerContentTitleStyled>{sidebarTitle}</DrawerContentTitleStyled>
@@ -56,20 +67,26 @@ const DrawerContents = ({ onClose, menuList, username, sidebarTitle }) => (
         />
       </DrawerContentsIconWrapperStyled>
     </DrawerContentTitleWrapperStyled>{" "}
-    <DrawerContentUsernameBoxWrapperStyled>
-      <DrawerContentUsernameIconStyled>
-        <IconComponent name="fa-user" size="25px" color="white" />
-      </DrawerContentUsernameIconStyled>
-      <DrawerContentUsernameContentWrapperStyled>
-        Hey, {username}
-      </DrawerContentUsernameContentWrapperStyled>
-    </DrawerContentUsernameBoxWrapperStyled>
+    {isLoggedIn && (
+      <DrawerContentUsernameBoxWrapperStyled>
+        <DrawerContentUsernameIconStyled>
+          <HeaderUserLogo src={imageUrl} alt="User Icon" srcset="" />
+        </DrawerContentUsernameIconStyled>
+        <DrawerContentUsernameContentWrapperStyled>
+          Hey, {username}
+        </DrawerContentUsernameContentWrapperStyled>
+      </DrawerContentUsernameBoxWrapperStyled>
+    )}
     <div>
       {menuList.map((menu, index) => {
         return <DrawerItem {...menu} key={`DrawerContentMenu-${index}`} />;
       })}
     </div>
     <div style={{ border: "solid 1px #707070", margin: "20px" }}></div>
+    {isLoggedIn &&
+      LoggedInMenu.map((menu, index) => {
+        return <RenderSubMenu {...menu} key={`DrawerContentMenu-${index}`} />;
+      })}
   </DrawerContentWrapperStyled>
 );
 
@@ -77,11 +94,16 @@ const DrawerContainer = ({
   isOpen,
   onClose,
   menuList,
-  username,
+  userDetails,
   sidebarTitle,
+  isLoggedIn,
 }) => {
+  const dispatch = useDispatch();
   const buttonConfig = {
-    onClick: onClose,
+    onClick: () => {
+      dispatch({ type: "LOGOUT" });
+      onClose();
+    },
     label: "Logout",
     type: "GHOST",
   };
@@ -92,12 +114,15 @@ const DrawerContainer = ({
         <DrawerContents
           onClose={onClose}
           menuList={menuList}
-          username={username}
+          userDetails={userDetails}
           sidebarTitle={sidebarTitle}
+          isLoggedIn={isLoggedIn}
         />
-        <DrawerButtonWrapper>
-          <Button {...buttonConfig}>{buttonConfig.label}</Button>
-        </DrawerButtonWrapper>
+        {isLoggedIn && (
+          <DrawerButtonWrapper>
+            <Button {...buttonConfig}>{buttonConfig.label}</Button>
+          </DrawerButtonWrapper>
+        )}
       </DrawerContainerWrapperStyled>
     </DrawerContainerOverlayStyled>
   );
