@@ -1,12 +1,25 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const HeaderWrapperStyled = styled.div`
-  position: fixed;
+  ${(props) =>
+    props.isHomeRoute &&
+    css`
+      position: fixed;
+      background-color: ${(props) =>
+        props.scrollPosition > 100 && props.theme.colors.light};
+    `}
+
+  ${(props) =>
+    !props.isHomeRoute &&
+    css`
+      position: ${(props) =>
+        props.scrollPosition > 100 ? "fixed" : "relative"};
+      background-color: ${(props) => props.theme.colors.light};
+    `}
+  
   top: 0;
   z-index: 99;
   width: 100%;
-  background-color: ${(props) =>
-    props.scrollPosition > 100 && props.theme.colors.light};
 `;
 
 export const HeaderStyled = styled.div`
@@ -21,8 +34,14 @@ export const HeaderBrandNameStyled = styled.div`
   font-family: ${(props) => props.theme.headingFont};
   font-size: 40px;
   line-height: 1.2;
-  color: ${(props) =>
-    props.isHeaderInverse ? props.theme.colors.dark : props.theme.colors.light};
+  ${(props) =>
+    props.isHomeRoute &&
+    css`
+      color: ${(props) =>
+        props.isHeaderInverse
+          ? props.theme.colors.dark
+          : props.theme.colors.light};
+    `}
   margin: 0 30px;
   position: relative;
   top: 5px;
@@ -38,8 +57,14 @@ export const HeaderLoginStyled = styled.div`
   font-size: 30px;
   line-height: 1.2;
   text-align: left;
-  color: ${(props) =>
-    props.isHeaderInverse ? props.theme.colors.dark : props.theme.colors.light};
+  ${(props) =>
+    props.isHomeRoute &&
+    css`
+      color: ${(props) =>
+        props.isHeaderInverse
+          ? props.theme.colors.dark
+          : props.theme.colors.light};
+    `}
   cursor: pointer;
 `;
 

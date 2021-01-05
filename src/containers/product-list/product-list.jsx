@@ -1,9 +1,12 @@
 import { ProductCard } from "components";
 import React, { useEffect, useState } from "react";
-import { getProducts } from "services";
+import { getAllProducts } from "services";
 
 // styles
-import { ProductListHeadingStyled, ProductListStyled } from "./product-list.styled";
+import {
+  ProductListHeadingStyled,
+  ProductListStyled,
+} from "./product-list.styled";
 
 export const ProductList = (props) => {
   const categoryType = props.match.params.type || "";
@@ -12,26 +15,22 @@ export const ProductList = (props) => {
   useEffect(() => {
     const fetchProducts = async () => {
       const type = props.match.params.type || "";
-      let response = await getProducts(type);
+      let response = await getAllProducts(type);
       if (response) setProducts([...products, ...response]);
     };
     fetchProducts();
   }, [categoryType, products, props.match.params.type]);
-  
+
   return (
     <ProductListStyled>
       <ProductListHeadingStyled>All {categoryType}</ProductListHeadingStyled>
-      {
-        products ? 
-        mapProducts(products) :
-        (<div>
-          No products found
-        </div>)
-      }      
+      {products ? mapProducts(products) : <div>No products found</div>}
     </ProductListStyled>
   );
 };
 
-const mapProducts = (products) => {
-  return products.map((product, idx) => (<ProductCard key={idx} item={product} />))
-}
+const mapProducts = (products, type) => {
+  return products.map((product, idx) => (
+    <ProductCard key={idx} item={product} type={type} />
+  ));
+};

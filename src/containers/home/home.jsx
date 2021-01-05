@@ -17,22 +17,22 @@ const productData = {
     {
       label: "T-Shirts",
       img: require("./../../assets/images/tshirts.jpg").default,
-      goTo: "/prod/T-Shirts",
+      goTo: "/prod/t-shirts",
     },
     {
       label: "Jeans",
       img: require("./../../assets/images/jeans.jpg").default,
-      goTo: "/prod/Jeans",
+      goTo: "/prod/jeans",
     },
     {
       label: "Backpacks",
       img: require("./../../assets/images/backpack.jpg").default,
-      goTo: "/prod/Backpacks",
+      goTo: "/prod/backpacks",
     },
     {
       label: "Charm Necklace",
       img: require("./../../assets/images/watches.jpg").default,
-      goTo: "/prod/Necklace",
+      goTo: "/prod/necklace",
     },
   ],
 };
