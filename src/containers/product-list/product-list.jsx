@@ -3,23 +3,24 @@ import React, { useEffect, useState } from "react";
 import { getProducts } from "services";
 
 // styles
-import { ProductListStyled } from "./product-list.styled";
+import { ProductListHeadingStyled, ProductListStyled } from "./product-list.styled";
 
 export const ProductList = (props) => {
-  const fetchProducts = async () => {
-    const type = props.match.params.type || "";
-    let response = await getProducts(type);
-    if (response) setProducts([...products, ...response.items]);
-  };
-
+  const categoryType = props.match.params.type || "";
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
+    const fetchProducts = async () => {
+      const type = props.match.params.type || "";
+      let response = await getProducts(type);
+      if (response) setProducts([...products, ...response]);
+    };
     fetchProducts();
-  }, []);
+  }, [categoryType, products, props.match.params.type]);
   
   return (
     <ProductListStyled>
+      <ProductListHeadingStyled>All {categoryType}</ProductListHeadingStyled>
       {
         products ? 
         mapProducts(products) :
