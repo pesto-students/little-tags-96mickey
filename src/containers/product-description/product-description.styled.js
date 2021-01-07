@@ -7,3 +7,13 @@ export const ProductDescriptionStyled = styled.div`
     margin: auto;
     display: flex;
 `;
+
+export const ProductDiscoverTitle = styled.div`
+    font-family: ${(props) => props.theme.headingFont};
+    font-size: 61px;
+    line-height: 1.2;
+    text-align: center;
+    width: 100%;
+    margin-top: 70px;
+    color: ${(props) => props.theme.colors.dark};
+`;
