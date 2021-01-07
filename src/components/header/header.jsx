@@ -55,7 +55,7 @@ export const Header = ({ isHome }) => {
         isOpen={isOpen}
         onClose={toggleDrawer}
         menuList={menuList}
-        sidebarTitle={"Little Tags"}
+        sidebarTitle="Little Tags"
         isLoggedIn={isLoggedIn}
         userDetails={userDetails}
       />
