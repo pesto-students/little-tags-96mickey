@@ -14,12 +14,12 @@ export const ProductList = (props) => {
 
   useEffect(() => {
     const fetchProducts = async () => {
-      const type = props.match.params.type || "";
-      let response = await getProducts(type);
-      if (response) setProducts([...products, ...response]);
+      let response = await getProducts(categoryType);
+      console.log(response.data);
+      if (response) setProducts([...products, ...response.data]);
     };
     fetchProducts();
-  }, [categoryType, products, props.match.params.type]);
+  }, [categoryType]);
 
   return (
     <ProductListStyled>
