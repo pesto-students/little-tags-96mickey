@@ -38,11 +38,3 @@ export const ProductPriceStyled = styled.div`
   align-self: center;
   font-size: 25px;
 `;
-
-// export const ProductPriceStyled = styled.div`
-//   align-self: center;
-//   font-size: 15px;
-//   &:before {
-//     content: "₹ ";
-//   }
-// `;
