@@ -4,19 +4,19 @@ export const menuList = [
     subMenu: [
       {
         name: "Accessories",
-        goTo: "",
+        goTo: "/prod/accessories",
       },
       {
         name: "Shirts",
-        goTo: "",
+        goTo: "/prod/shirts",
       },
       {
         name: "Pants",
-        goTo: "",
+        goTo: "/prod/pants",
       },
       {
         name: "Jackets",
-        goTo: "",
+        goTo: "/prod/jackets",
       },
     ],
   },

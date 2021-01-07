@@ -22,7 +22,7 @@ import ModalComponent from "./../login-modal/login-modal.component";
 // constants
 import { menuList } from "./../../constants/header.constants";
 
-export const Header = (props) => {
+export const Header = ({ isHome }) => {
   const isLoggedIn = useSelector((state) => state.user.isLoggedIn);
   const userDetails = useSelector((state) => state.user.userdetails);
   const [isOpen, setIsOpen] = React.useState(false);
@@ -50,7 +50,7 @@ export const Header = (props) => {
 
   const isHeaderInverse = scrollPosition > 100;
   return (
-    <HeaderWrapperStyled scrollPosition={scrollPosition}>
+    <HeaderWrapperStyled scrollPosition={scrollPosition} isHomeRoute={isHome}>
       <DrawerContainer
         isOpen={isOpen}
         onClose={toggleDrawer}
@@ -64,10 +64,13 @@ export const Header = (props) => {
         <IconComponent
           name="fa-bars"
           size="40px"
-          color={isHeaderInverse ? "black" : "white"}
+          color={isHome ? (isHeaderInverse ? "black" : "white") : "black"}
           handleClick={toggleDrawer}
         />
-        <HeaderBrandNameStyled isHeaderInverse={isHeaderInverse}>
+        <HeaderBrandNameStyled
+          isHeaderInverse={isHeaderInverse}
+          isHomeRoute={isHome}
+        >
           Little Tags
         </HeaderBrandNameStyled>
         <HeaderComponentInputWrapperStyled>
@@ -79,7 +82,10 @@ export const Header = (props) => {
         </HeaderComponentInputWrapperStyled>
 
         {isLoggedIn ? (
-          <HeaderLoginStyled isHeaderInverse={isHeaderInverse}>
+          <HeaderLoginStyled
+            isHeaderInverse={isHeaderInverse}
+            isHomeRoute={isHome}
+          >
             <HeaderUserLogo
               src={userDetails.imageUrl}
               alt="User Icon"
@@ -90,6 +96,7 @@ export const Header = (props) => {
         ) : (
           <HeaderLoginStyled
             isHeaderInverse={isHeaderInverse}
+            isHomeRoute={isHome}
             onClick={toggleModal}
           >
             Log in / Sign up
