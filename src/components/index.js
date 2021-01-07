@@ -8,3 +8,7 @@ export * from "./icon-component";
 export * from "./drawer";
 export * from "./product-section";
 export * from "./product-card";
+export * from './slider';
+export * from './product-details';
+export * from './size-selector';
+export * from './quantity-selector';
