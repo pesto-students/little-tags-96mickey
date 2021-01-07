@@ -8,7 +8,6 @@ import {
 } from "./product-card.styled";
 
 export const ProductCard = (props) => {
-  console.log(props);
   return (
     <Link
       to={`/prod/${props.type}/${props.item.id}/description`}

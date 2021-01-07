@@ -1,28 +1,57 @@
-import { QuantitySelector } from 'components/quantity-selector/quantity-selector';
-import { SizeSelector } from 'components/size-selector/size-selector';
-import React from 'react';
+import Button from 'components/button/button.component';
+import { SizeSelector, QuantitySelector } from 'components';
+import React, { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { 
     ProductDetailsStyled, 
     ProductName, 
     ProductPrice,
     ProductDescription
 } from './product-details.styled';
+import { ADD_TO_CART } from 'reducers/types.constants';
 
 export const ProductDetails = (props) => {
-    console.log(props.product);
+    const [selectedSize, setSelectedSize] = useState();
+    const [selectedQuantity, setSelectedQuantity] = useState(1);
+    const [isSizeEmpty, setIsSetSizeEmpty] = useState(false);
+
     const {product} = props;
+    const isLoggedIn = useSelector((state) => state.user.isLoggedIn);
+    const dispatch = useDispatch();
+
+    const onSizeSelect = (size) => {
+        setSelectedSize(size);
+        setIsSetSizeEmpty(false);
+    }
+
+    const addToCart = () => {
+        if(!selectedSize) {
+            setIsSetSizeEmpty(true);
+            return;
+        }
+        dispatch({
+          type: ADD_TO_CART,
+          payload: {
+            ...product,
+            quantity: selectedQuantity,
+            size: selectedSize
+          },
+        });
+    }
+
     return (
         <ProductDetailsStyled>
-            <ProductName>{product.name}</ProductName>
+            <ProductName>{product.title}</ProductName>
             <ProductPrice>{product.price}</ProductPrice>
             <ProductDescription>{product.description}</ProductDescription>
-            <SizeSelector 
-                onSizeSelect={props.onSizeSelect} 
-                size={product.size} 
-                selectedSize={props.selectedSize}
-            />
-            <QuantitySelector />
-            {/* add to cart button */}
+                <SizeSelector 
+                    onSizeSelect={(size) => onSizeSelect(size)} 
+                    size={product.size} 
+                    selectedSize={selectedSize}
+                    isSizeEmpty={isSizeEmpty}
+                />
+            <QuantitySelector minValue={1} onChange={setSelectedQuantity} />
+            {isLoggedIn && <Button onClick={addToCart}>Add to Cart</Button>}
         </ProductDetailsStyled>
     )
 }

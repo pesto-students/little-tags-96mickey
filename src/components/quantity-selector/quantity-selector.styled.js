@@ -15,6 +15,7 @@ const styleDefaults = {
 }
 
 export const Wrapper = styled.div`
+  margin-bottom: 20px;
   display: inline-flex;
   *:focus {
     outline: none;

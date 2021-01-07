@@ -6,7 +6,6 @@ import { ProductDescriptionStyled } from "./product-description.styled";
 export const ProductDescription = (props) => {
   const productId = props.match.params.id || "";
   const [product, setProduct] = useState();
-  const [selectedSize, setSelectedSize] = useState();
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -29,8 +28,6 @@ export const ProductDescription = (props) => {
     <ProductDescriptionStyled>
       <Slider slides={product.images} />
       <ProductDetails
-        onSizeSelect={setSelectedSize}
-        selectedSize={selectedSize}
         product={product}
       />
     </ProductDescriptionStyled>

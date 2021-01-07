@@ -57,23 +57,30 @@ const initState = {
 const cartReducer = (state = initState, action) => {
   //INSIDE HOME COMPONENT
   if (action.type === ADD_TO_CART) {
-    let addedItem = state.items.find((item) => item.id === action.id);
     //check if the action id exists in the addedItems
-    let existed_item = state.addedItems.find((item) => action.id === item.id);
-    if (existed_item) {
-      addedItem.quantity += 1;
+    let existingItem = state.addedItems.find((item) => action.payload.id === item.id && action.payload.size ===item.size);
+    if (existingItem) {
+      existingItem.quantity += action.payload.quantity;
       return {
         ...state,
-        total: state.total + addedItem.price,
+        total: state.total + existingItem.price * action.payload.quantity,
       };
     } else {
-      addedItem.quantity = 1;
+      const newProd = {
+        id: action.payload.id,
+        title: action.payload.title,
+        image: action.payload.image,
+        images: action.payload.images,
+        price: action.payload.price,
+        quantity: action.payload.quantity,
+        size: action.payload.size
+      };
       //calculating the total
-      let newTotal = state.total + addedItem.price;
+      let newTotal = state.total + newProd.price * newProd.quantity;
 
       return {
         ...state,
-        addedItems: [...state.addedItems, addedItem],
+        addedItems: [...state.addedItems, newProd],
         total: newTotal,
       };
     }
@@ -85,7 +92,6 @@ const cartReducer = (state = initState, action) => {
 
     //calculating the total
     let newTotal = state.total - itemToRemove.price * itemToRemove.quantity;
-    console.log(itemToRemove);
     return {
       ...state,
       addedItems: new_items,

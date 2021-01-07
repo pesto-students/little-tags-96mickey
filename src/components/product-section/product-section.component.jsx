@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 
 // components
 import { CategoryCard } from "components/category-card/category-card";

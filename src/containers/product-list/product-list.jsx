@@ -15,11 +15,10 @@ export const ProductList = (props) => {
   useEffect(() => {
     const fetchProducts = async () => {
       let response = await getProducts(categoryType);
-      console.log(response.data);
       if (response) setProducts([...products, ...response.data]);
     };
     fetchProducts();
-  }, [categoryType]);
+  }, [categoryType, products]);
 
   return (
     <ProductListStyled>

@@ -11,12 +11,15 @@ export const SizeSelectorOption = (props) => {
         }
         if(props.selectedSize && props.selectedSize === props.name) {
             setIsSelected(true);
+        } else {
+            setIsSelected(false);
         }
       }, [setIsAvailable, props]);
     
     return (<SizeSelectorOptionStyled 
         isSelected={isSelected} 
         isAvailable={isAvailable}
+        onClick={() => props.onSizeSelect(props.name)}
         >
         {props.name}
     </SizeSelectorOptionStyled>);

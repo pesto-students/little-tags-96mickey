@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const ArrowStyled = styled.div`
+background: white;
 display: flex;
 position: absolute;
 top: 50%;
