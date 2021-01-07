@@ -7,7 +7,6 @@ import { Home, ProductList, ProductDescription } from "containers";
 import { contactInfoData, cardUrls } from "./constants/home.contants";
 import { categories } from "./constants/drawer.constants";
 import "./App.css";
-import { getAllProducts } from "services";
 import { useLocation } from "react-router-dom";
 
 const mapDispatchToProps = (dispatch) => ({
