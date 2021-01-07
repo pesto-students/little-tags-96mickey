@@ -20,6 +20,7 @@ import ModalComponent from "./../login-modal/login-modal.component";
 
 // constants
 import { menuList } from "./../../constants/header.constants";
+import { Link } from "react-router-dom";
 
 export const Header = ({ isHome }) => {
   const isLoggedIn = useSelector((state) => state.user.isLoggedIn);
@@ -66,12 +67,14 @@ export const Header = ({ isHome }) => {
           color={isHome ? (isHeaderInverse ? "black" : "white") : "black"}
           handleClick={toggleDrawer}
         />
-        <HeaderBrandNameStyled
-          isHeaderInverse={isHeaderInverse}
-          isHomeRoute={isHome}
-        >
-          Little Tags
-        </HeaderBrandNameStyled>
+        <Link to="/" style={{ textDecoration: "none", color: "inherit" }}>
+          <HeaderBrandNameStyled
+            isHeaderInverse={isHeaderInverse}
+            isHomeRoute={isHome}
+          >
+            Little Tags
+          </HeaderBrandNameStyled>
+        </Link>
         <HeaderComponentInputWrapperStyled>
           <Input
             iconName="fa-search"

@@ -7,6 +7,7 @@ export const ProductDetailsStyled = styled.div`
 `;
 
 export const ProductName = styled.div`
+    max-width: 40vw;
     font-size: ${props => props.theme.fontSizes.font_24}
 `;
 
@@ -20,4 +21,16 @@ export const ProductPrice = styled.div`
 export const ProductDescription = styled.div`
     font-size: ${props => props.theme.fontSizes.font_12};
     max-width: 40vw;
+`;
+
+export const AddToCartWrapper = styled.div`
+    max-width: 200px;
+`;
+
+export const NotLoggedIn = styled.div`
+    color: white;
+    max-width: 200px;
+    font-size: ${props => props.theme.fontSizes.font_12};
+    background-color: black;
+    opacity: 0.5
 `;

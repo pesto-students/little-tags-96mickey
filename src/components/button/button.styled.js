@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { hexToRGBA } from "./../../utils/hex-to-rgba";
-import { INVERSE, PRIMARY, GHOST } from "../../constants/button.constants";
+import { INVERSE, PRIMARY, GHOST, DISABLED } from "../../constants/button.constants";
 
 const checkType = (props) => {
   switch (props.type) {
@@ -23,6 +23,14 @@ const checkType = (props) => {
         backgroundColor: props.theme.colors.light,
         borderColor: props.theme.colors.dark,
       };
+
+    case DISABLED:
+      return {
+        color: props.theme.colors.dark,
+        backgroundColor: props.theme.colors.gallery,
+        borderColor: props.theme.colors.gallery,
+      };
+      
     default:
       return {
         color: props.theme.colors.light,
@@ -50,8 +58,8 @@ export const ButtonStyled = styled.button`
     outline: 0;
   }
 
-  :hover {
+  ${props => props.type !== DISABLED && `:hover {
     box-shadow: 0 0 ${(props) => props.theme.spaces.space_xs} 0
       ${(props) => hexToRGBA(props.theme.colors.dark, 0.16)};
-  }
+  }`}
 `;

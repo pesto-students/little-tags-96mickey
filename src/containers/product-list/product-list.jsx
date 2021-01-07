@@ -1,8 +1,6 @@
-import { ProductCard } from "components";
+import { ProductCard, Loader } from "components";
 import React, { useEffect, useState } from "react";
 import { getProducts } from "services";
-
-// styles
 import {
   ProductListHeadingStyled,
   ProductListStyled,
@@ -11,25 +9,32 @@ import {
 export const ProductList = (props) => {
   const categoryType = props.match.params.type || "";
   const [products, setProducts] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
+    setIsLoading(true);
     const fetchProducts = async () => {
       let response = await getProducts(categoryType);
       if (response) setProducts([...products, ...response.data]);
+      setIsLoading(false);
     };
     fetchProducts();
-  }, [categoryType, products]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [categoryType]);
 
+  if(isLoading) return <Loader />;
   return (
     <ProductListStyled>
-      <ProductListHeadingStyled>All {categoryType}</ProductListHeadingStyled>
+      <ProductListHeadingStyled>
+        All {categoryType.charAt(0).toUpperCase() + categoryType.slice(1)}
+      </ProductListHeadingStyled>
       {products ? mapProducts(products) : <div>No products found</div>}
     </ProductListStyled>
   );
 };
 
-const mapProducts = (products, type) => {
+const mapProducts = (products) => {
   return products.map((product, idx) => (
-    <ProductCard key={idx} item={product} type={type} />
+    <ProductCard key={idx} item={product} />
   ));
 };

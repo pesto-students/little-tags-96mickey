@@ -6,9 +6,12 @@ import {
     ProductDetailsStyled, 
     ProductName, 
     ProductPrice,
-    ProductDescription
+    ProductDescription,
+    AddToCartWrapper,
+    NotLoggedIn
 } from './product-details.styled';
 import { ADD_TO_CART } from 'reducers/types.constants';
+import { GHOST } from '../../constants';
 
 export const ProductDetails = (props) => {
     const [selectedSize, setSelectedSize] = useState();
@@ -51,7 +54,15 @@ export const ProductDetails = (props) => {
                     isSizeEmpty={isSizeEmpty}
                 />
             <QuantitySelector minValue={1} onChange={setSelectedQuantity} />
-            {isLoggedIn && <Button onClick={addToCart}>Add to Cart</Button>}
+            {
+            isLoggedIn ? (
+            <AddToCartWrapper>
+                <Button onClick={addToCart}>Add to Cart</Button>
+            </AddToCartWrapper>) :
+            <NotLoggedIn title="Please login to continue">
+                <Button type={GHOST}>Add to Cart</Button>
+            </NotLoggedIn>
+            }
         </ProductDetailsStyled>
     )
 }

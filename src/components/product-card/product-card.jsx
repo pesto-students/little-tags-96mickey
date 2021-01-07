@@ -10,7 +10,7 @@ import {
 export const ProductCard = (props) => {
   return (
     <Link
-      to={`/prod/${props.type}/${props.item.id}/description`}
+      to={`/prod/${props.item.id}/description`}
       style={{ textDecoration: "none", color: "inherit" }}
     >
       <ProductCardStyled>
