@@ -1,0 +1,350 @@
+.meat-boy-wrapper {
+    margin-top: 10vh;
+    display: flex;
+    justify-content: space-around;
+}
+
+#meat_boy {
+  position: relative;
+  margin-top: -5em;
+  margin-left: -5em;
+  width: 10em;
+  height: 10em;
+  background-color: transparent;
+}
+
+#shadow {
+  position: absolute;
+  bottom: .8em;
+  margin-left: 10%;
+  width: 80%;
+  height: 10%;
+  background-color: #A8A8A8;
+  border-radius: 100%;
+  box-shadow: 0 0 15px 15px #A8A8A8;
+  opacity: .6;
+}
+
+#body {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -3em;
+  margin-left: -3em;
+  width: 6.7em;
+  height: 6em;
+  background-color: #BA0001;
+  border: .38em solid black;
+  border-radius: .2em .3em .2em .2em;
+  box-shadow: 0 0 .01em .01em black;
+  transform: rotate(5deg);
+}
+
+#meat_boy:hover #body {
+  animation: shake .2s ease-in 3;
+}
+
+@keyframes shake {
+  0% {
+    transform: rotate(5deg);
+  }
+  100% {
+    transform: rotate(3.5deg);
+  }
+}
+
+#left-hand {
+  position: absolute;
+  top: 2em;
+  left: 2.3em;
+  width: 2em;
+  height: 3em;
+  background-color: #BA0001;
+  border: .38em solid black;
+  border-radius: .2em;
+  box-shadow: 0 0 .01em .01em black;
+  transform: rotate(-50deg);
+  transform-origin: 50% 100%;
+}
+
+#meat_boy:hover #left-hand {
+  animation: wave .2s ease-in 3;
+}
+
+@keyframes wave {
+  0% {
+    transform: rotate(-50deg) skewX(0deg);
+  }
+  50% {
+    transform: rotate(-130deg) skewX(5deg);
+  }
+  100% {
+    transform: rotate(-50deg) skewX(0deg);
+  }
+}
+
+#right-hand {
+  position: absolute;
+  right: .9em;
+  bottom: 2.6em;
+  width: 2em;
+  height: 2.2em;
+  background-color: #BA0001;
+  border: .38em solid black;
+  border-radius: .2em;
+  box-shadow: 0 0 .01em .01em black;
+  transform: rotate(-45deg) skewX(-5deg);
+}
+
+#left-leg {
+  position: absolute;
+  bottom: 1em;
+  left: 2.4em;
+  width: 2.2em;
+  height: 2em;
+  background-color: #BA0001;
+  border: .38em solid black;
+  border-radius: .2em;
+  box-shadow: 0 0 .01em .01em black;
+}
+
+#right-leg {
+  position: absolute;
+  right: 2.2em;
+  bottom: 1.05em;
+  width: 2.1em;
+  height: 2em;
+  background-color: #BA0001;
+  border: .38em solid black;
+  border-radius: .2em;
+  box-shadow: 0 0 .01em .01em black;
+  transform: rotateX(-8deg);
+}
+
+#left-eye {
+  position: absolute;
+  top: .3em;
+  left: .5em;
+  width: 1.5em;
+  height: 1.4em;
+  border-radius: 45%;
+  background-color: black;
+  box-shadow: 0 0 .01em .01em black;
+  transform: rotate(3deg);
+}
+
+#left-eye:before {
+  content: '';
+  position: absolute;
+  bottom: -.75em;
+  left: 0;
+  width: 1.5em;
+  height: 1em;
+  background-color: #BA0001;
+}
+
+#left-eye:after {
+  content: '';
+  position: absolute;
+  top: .3em;
+  left: .3em;
+  width: .45em;
+  height: .45em;
+  border-radius: 100%;
+  background-color: white;
+  box-shadow: 0 0 .01em .01em white;
+}
+
+#right-eye {
+  position: absolute;
+  top: .4em;
+  right: .55em;
+  width: 1.35em;
+  height: 1.3em;
+  border-radius: 45%;
+  background-color: black;
+  box-shadow: 0 0 .01em .01em black;
+  transform: rotate(1deg);
+}
+
+#right-eye:before {
+  content: '';
+  position: absolute;
+  bottom: -.8em;
+  left: 0;
+  width: 1.5em;
+  height: 1em;
+  background-color: #BA0001;
+}
+
+#right-eye:after {
+  content: '';
+  position: absolute;
+  top: .25em;
+  left: .3em;
+  width: .43em;
+  height: .43em;
+  border-radius: 100%;
+  background-color: white;
+  box-shadow: 0 0 .01em .01em white;
+}
+
+#dimple {
+  position: absolute;
+  top: 1.75em;
+  right: 1.2em;
+  width: 1.1em;
+  height: 1em;
+  background-color: black;
+  border-radius: 45%;
+  box-shadow: 0 0 .03em .03em black;
+  transform: rotate(25deg) skewX(-15deg);
+}
+
+#dimple:before {
+  content: '';
+  position: absolute;
+  top: .22em;
+  left: -.14em;
+  width: 1.3em;
+  height: .85em;
+  border-radius: 30%;
+  background-color: #BA0001;
+  box-shadow: 0 0 .03em .03em #BA0001;
+  transform: rotate(20deg);
+}
+
+#smiley {
+  position: absolute;
+  top: 1.85em;
+  left: 2.4em;
+  width: 2.3em;
+  height: 1em;
+  background-color: black;
+  border-bottom: .38em solid black;
+  border-radius: 100%;
+  box-shadow: 0 0 .03em .03em black;
+  transform: rotate(-5deg) skewX(-30deg);
+}
+
+#smiley:before {
+  content: '';
+  position: absolute;
+  top: -.18em;
+  left: -.55em;
+  width: 2.5em;
+  height: 1em;
+  border-radius: 48%;
+  background-color: #BA0001;
+  box-shadow: 0 0 .03em .03em #BA0001;
+  transform: rotate(2deg);
+}
+
+#smiley:after {
+  content: '';
+  position: absolute;
+  top: .3em;
+  left: -.65em;
+  width: 1em;
+  height: 1em;
+  background-color: #BA0001;
+  box-shadow: 0 0 .03em .03em #BA0001;
+}
+
+#deformation1 {
+  position: absolute;
+  top: -.2em;
+  left: -.28em;
+  width: 2.2em;
+  height: 1.8em;
+  border-top-left-radius: 30%;
+  border-top: .25em solid black;
+  background-color: transparent;
+  transform: rotate(-6deg);
+}
+
+#deformation2 {
+  position: absolute;
+  top: -.2em;
+  right: -.2em;
+  width: 1em;
+  height: 1.8em;
+  border-top-right-radius: 30%;
+  border-top: .25em solid black;
+  background-color: transparent;
+  transform: rotate(10deg);
+}
+
+#deformation3 {
+  position: absolute;
+  right: 0;
+  bottom: -.45em;
+  width: 3.5em;
+  height: .5em;
+  border: .25em solid black;
+  border-radius: 100%;
+  background-color: transparent;
+  box-shadow: 0 0 .01em .01em black;
+  transform: skewX(-75deg);
+}
+
+#deformation4 {
+  position: absolute;
+  bottom: -.25em;
+  left: -.3em;
+  width: 3em;
+  height: .25em;
+  border: .15em solid black;
+  border-radius: 100%;
+  background-color: transparent;
+  box-shadow: 0 0 .01em .01em black;
+  transform: rotate(1deg);
+}
+
+#deformation5 {
+  position: absolute;
+  top: 0;
+  right: -.4em;
+  width: .5em;
+  height: 5em;
+  border: .25em solid black;
+  border-radius: 100%;
+  background-color: transparent;
+  box-shadow: 0 0 .01em .01em black;
+  transform: skewY(-15deg);
+}
+
+#deformation6 {
+  position: absolute;
+  top: -.4em;
+  left: -.5em;
+  width: 4.5em;
+  height: .1em;
+  border: .15em solid black;
+  border-top-left-radius: 35%;
+  background-color: transparent;
+  transform: rotate(1deg) skewX(3deg);
+}
+
+#deformation7 {
+  position: absolute;
+  top: -.3em;
+  left: -.42em;
+  width: .1em;
+  height: 4.5em;
+  border: .15em solid black;
+  background-color: black;
+  transform: rotate(-2deg);
+}
+
+#deformation8 {
+  position: absolute;
+  bottom: -.2em;
+  left: -.28em;
+  width: .3em;
+  height: 1em;
+  border: .1em solid black;
+  background-color: transparent;
+  box-shadow: 0 0 .01em .01em black;
+  transform: rotate(2deg);
+}

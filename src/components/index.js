@@ -14,3 +14,4 @@ export * from './size-selector';
 export * from './quantity-selector';
 export * from './loader';
 export * from './styled-link';
+export * from './thank-you';

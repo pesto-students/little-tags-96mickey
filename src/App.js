@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Route, Switch } from "react-router-dom";
-import { NotFound, Header, Footer } from "components";
+import { NotFound, Header, Footer, ThankYou } from "components";
 import { connect } from "react-redux";
 import { simpleAction } from "./actions";
 import { Home, ProductList, ProductDescription } from "containers";
@@ -33,6 +33,7 @@ function App() {
           <Route path="/" component={Home} exact />
           <Route path="/prod/:id/description" component={ProductDescription} />
           <Route path="/prod/:type" component={ProductList} />
+          <Route path="/thanks" component={ThankYou} />
           <Route component={NotFound} />
         </Switch>
       </div>
