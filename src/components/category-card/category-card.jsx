@@ -1,4 +1,6 @@
 import React from "react";
+import PropTypes from "prop-types";
+
 import { Link } from "react-router-dom";
 import {
   CategoryCardStyled,
@@ -15,4 +17,10 @@ export const CategoryCard = (props) => {
       </CategoryCardStyled>
     </Link>
   );
+};
+
+CategoryCard.propTypes = {
+  link: PropTypes.string,
+  image: PropTypes.string,
+  displayText: PropTypes.string,
 };

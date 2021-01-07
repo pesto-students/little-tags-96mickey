@@ -58,7 +58,9 @@ const DrawerContents = ({
 }) => (
   <DrawerContentWrapperStyled>
     <DrawerContentTitleWrapperStyled>
-      <DrawerContentTitleStyled>{sidebarTitle}</DrawerContentTitleStyled>
+      <Link to="/">
+        <DrawerContentTitleStyled>{sidebarTitle}</DrawerContentTitleStyled>
+      </Link>
       <DrawerContentsIconWrapperStyled>
         <IconComponent
           name={"fa-times"}
@@ -109,7 +111,7 @@ const DrawerContainer = ({
   };
 
   return (
-    <DrawerContainerOverlayStyled isOpen={isOpen}>
+    <DrawerContainerOverlayStyled isOpen={isOpen} onClick={onClose}>
       <DrawerContainerWrapperStyled isOpen={isOpen}>
         <DrawerContents
           onClose={onClose}
