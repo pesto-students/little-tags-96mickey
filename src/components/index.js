@@ -13,3 +13,4 @@ export * from './product-details';
 export * from './size-selector';
 export * from './quantity-selector';
 export * from './loader';
+export * from './styled-link';

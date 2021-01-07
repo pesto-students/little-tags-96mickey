@@ -6,11 +6,11 @@ import {
   ProuctImageTextOverlayStyled,
   ProductCarouselImageWrapperStyled,
 } from "./product-section.component.styled";
-import { Link } from "react-router-dom";
 import {
   ProductData as items,
   ProductCarouselIntervalTime,
 } from "./../../constants/home.contants";
+import { StyledLink } from "components/styled-link";
 
 const ProductCarousel = () => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -47,7 +47,7 @@ const ProductCarousel = () => {
                 className="col-lg-3"
                 key={`MostInDemandProduct-${index}`}
               >
-                <Link to={product.goTo}>
+                <StyledLink to={product.goTo}>
                   <ProductCarouselImageStyled
                     className="product-image"
                     src={product.imgUrl}
@@ -57,7 +57,7 @@ const ProductCarousel = () => {
                   <ProuctImageTextOverlayStyled className="view-now-text">
                     View Now
                   </ProuctImageTextOverlayStyled>
-                </Link>
+                </StyledLink>
               </ProductCarouselImageWrapperStyled>
             );
           })}

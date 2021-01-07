@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
 // component
@@ -25,14 +24,15 @@ import {
 
 // constants
 import { LoggedInMenu } from "./../../constants/drawer.constants";
+import { StyledLink } from "components";
 
 const RenderSubMenu = ({ name, goTo }) => {
   return (
-    <Link to={goTo}>
+    <StyledLink to={goTo}>
       <DrawerItemStyled onClick={() => console.log("Clicked Label" + name)}>
         {name}
       </DrawerItemStyled>
-    </Link>
+    </StyledLink>
   );
 };
 
@@ -58,9 +58,9 @@ const DrawerContents = ({
 }) => (
   <DrawerContentWrapperStyled>
     <DrawerContentTitleWrapperStyled>
-      <Link to="/">
+      <StyledLink to="/">
         <DrawerContentTitleStyled>{sidebarTitle}</DrawerContentTitleStyled>
-      </Link>
+      </StyledLink>
       <DrawerContentsIconWrapperStyled>
         <IconComponent
           name={"fa-times"}

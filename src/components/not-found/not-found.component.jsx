@@ -1,6 +1,6 @@
 import IconComponent from "components/icon-component/icon-component";
+import { StyledLink } from "components/styled-link";
 import React from "react";
-import { Link } from "react-router-dom";
 import './not-found.css';
 
 export const NotFound = () => {
@@ -88,12 +88,12 @@ export const NotFound = () => {
         </g>
       </svg>
     </div>
-    <Link to="/" style={{ textDecoration: "none", color: "inherit" }} className="go-home">
+    <StyledLink to="/" className="go-home">
       <IconComponent
         name={"fa-home"}
         size="30px"
       />
       Home
-    </Link>
+    </StyledLink>
   </div>
 )};

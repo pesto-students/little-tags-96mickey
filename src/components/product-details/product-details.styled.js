@@ -31,6 +31,5 @@ export const NotLoggedIn = styled.div`
     color: white;
     max-width: 200px;
     font-size: ${props => props.theme.fontSizes.font_12};
-    background-color: black;
-    opacity: 0.5
+    opacity: 0.5;
 `;

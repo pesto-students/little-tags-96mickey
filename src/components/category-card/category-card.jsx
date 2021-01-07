@@ -1,21 +1,20 @@
 import React from "react";
 import PropTypes from "prop-types";
-
-import { Link } from "react-router-dom";
 import {
   CategoryCardStyled,
   CategoryImage,
   CategoryInfo,
 } from "./category-card.styled";
+import { StyledLink } from "components";
 
 export const CategoryCard = (props) => {
   return (
-    <Link to={props.link}>
+    <StyledLink to={props.link}>
       <CategoryCardStyled>
         <CategoryImage src={props.image} />
         <CategoryInfo>{props.displayText}</CategoryInfo>
       </CategoryCardStyled>
-    </Link>
+    </StyledLink>
   );
 };
 

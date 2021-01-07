@@ -1,5 +1,5 @@
+import { StyledLink } from "components/styled-link";
 import React from "react";
-import { Link } from "react-router-dom";
 import {
   ProductCardStyled,
   ProductImageStyled,
@@ -9,9 +9,8 @@ import {
 
 export const ProductCard = (props) => {
   return (
-    <Link
+    <StyledLink
       to={`/prod/${props.item.id}/description`}
-      style={{ textDecoration: "none", color: "inherit" }}
     >
       <ProductCardStyled>
         <ProductImageStyled src={props.item.image} />
@@ -20,6 +19,6 @@ export const ProductCard = (props) => {
           <ProductPriceStyled>{props.item.price}</ProductPriceStyled>
         </div>
       </ProductCardStyled>
-    </Link>
+    </StyledLink>
   );
 };

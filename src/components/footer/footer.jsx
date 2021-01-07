@@ -1,6 +1,6 @@
 // vendor
+import { StyledLink } from "components";
 import React from "react";
-import { Link } from "react-router-dom";
 
 //styles
 import {
@@ -20,11 +20,11 @@ import {
 const renderContactInfoData = (contactInfoData) =>
   contactInfoData.map((contact, index) => (
     <FooterCategoryLinkStyled key={index} goTo={contact.goTo}>
-      <Link to={contactInfoData.goTo}>
+      <StyledLink to={contactInfoData.goTo}>
         <FooterCategoryTextStyled
           key={`FooterContactInfo-${index}`}
         >{`${contact.key} ${contact.value}`}</FooterCategoryTextStyled>
-      </Link>
+      </StyledLink>
     </FooterCategoryLinkStyled>
   ));
 
