@@ -1,7 +1,9 @@
-import Button from "components/button/button.component";
-import { SizeSelector, QuantitySelector } from "components";
+// vendor
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
+
+// styled
 import {
   ProductDetailsStyled,
   ProductName,
@@ -10,10 +12,15 @@ import {
   ProductDetailsButtonWrapperStyled,
   ProductDetailsIconWrapperStyled,
 } from "./product-details.styled";
-import { ADD_TO_CART, OPEN_LOGIN_MODAL } from "reducers/types.constants";
-import IconComponent from "components/icon-component/icon-component";
-import { useHistory } from "react-router-dom";
 
+// constants
+import { ADD_TO_CART, OPEN_LOGIN_MODAL } from "reducers/types.constants";
+
+// components
+import IconComponent from "components/icon-component/icon-component";
+import Button from "components/button/button.component";
+import { SizeSelector, QuantitySelector } from "components";
+import { success } from "./../notification/notification";
 export const ProductDetails = ({ product }) => {
   const history = useHistory();
   const [selectedSize, setSelectedSize] = useState();
@@ -49,6 +56,8 @@ export const ProductDetails = ({ product }) => {
         size: selectedSize,
       },
     });
+
+    success("Product Added to Cart Sucessfully");
 
     isProceedToCheckout && history.push("/cart");
   };

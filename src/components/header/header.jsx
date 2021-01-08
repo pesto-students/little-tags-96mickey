@@ -11,6 +11,9 @@ import {
   HeaderComponentInputWrapperStyled,
   HeaderLoginStyled,
   HeaderUserLogo,
+  HeaderIconComponentWrapperStyled,
+  HeaderIconComponentBadgeStyled,
+  HeaderIconComponentBadgeTextStyled,
 } from "./header.styled";
 
 // components
@@ -26,6 +29,7 @@ import { StyledLink } from "components/styled-link";
 export const Header = ({ isHome }) => {
   const isLoggedIn = useSelector((state) => state.user.isLoggedIn);
   const userDetails = useSelector((state) => state.user.userdetails);
+  const totalItems = useSelector((state) => state.cart.addedItems.length);
   const [isOpen, setIsOpen] = React.useState(false);
   const toggleDrawer = () => setIsOpen(!isOpen);
   const [scrollPosition, setScrollPosition] = React.useState(0);
@@ -108,11 +112,20 @@ export const Header = ({ isHome }) => {
             Log in / Sign up
           </HeaderLoginStyled>
         )}
-        <IconComponent
-          name="fa-shopping-cart"
-          size="40px"
-          handleClick={() => history.push("/cart")}
-        />
+        <HeaderIconComponentWrapperStyled>
+          <IconComponent
+            name="fa-shopping-cart"
+            size="40px"
+            handleClick={() => history.push("/cart")}
+          />
+          {totalItems && (
+            <HeaderIconComponentBadgeStyled>
+              <HeaderIconComponentBadgeTextStyled>
+                {totalItems}
+              </HeaderIconComponentBadgeTextStyled>
+            </HeaderIconComponentBadgeStyled>
+          )}
+        </HeaderIconComponentWrapperStyled>
         <ModalComponent />
       </HeaderStyled>
     </HeaderWrapperStyled>
