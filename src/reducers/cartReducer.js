@@ -1,4 +1,4 @@
-import { ADD_TO_CART, REMOVE_ITEM } from "./types.constants";
+import { ADD_TO_CART, REMOVE_ITEM, EMPTY_CART } from "./types.constants";
 
 const initState = {
   addedItems: [],
@@ -88,6 +88,13 @@ const cartReducer = (state = initState, action) => {
         ...state,
         total: calculateTotal(newCart),
         addedItems: [...newCart],
+      };
+
+    case EMPTY_CART:
+      return {
+        ...state,
+        total: 0,
+        addedItems: [],
       };
 
     default:

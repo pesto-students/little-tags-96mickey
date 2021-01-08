@@ -21,4 +21,4 @@ DL 110092, India`;
 
 export const PhoneNo = "823XXX44XX";
 
-export const ProceedToPayments = "/payments";
+export const ProceedToPayments = "/thanks";

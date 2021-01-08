@@ -1,6 +1,6 @@
 import React from "react";
-import { useSelector } from "react-redux";
-
+import { useSelector, useDispatch } from "react-redux";
+import { EMPTY_CART } from "./../../reducers/types.constants";
 // constants
 import {
   Title,
@@ -26,11 +26,18 @@ import {
 // components
 import Button from "./../../components/button/button.component";
 
-export function Payments() {
+export function Payments(props) {
   const name = useSelector((state) => state.user.name);
-
+  const dispatch = useDispatch();
   const setPaymentMode = (event) => {
     console.log(event.target.value);
+  };
+
+  const proceedToPayments = () => {
+    props.history.push(ProceedToPayments);
+    dispatch({
+      type: EMPTY_CART,
+    });
   };
 
   return (
@@ -64,10 +71,7 @@ export function Payments() {
       </PaymentOptionWrapperStyled>
 
       <PaymentButtonWrapperStyled>
-        <Button
-          type="primary"
-          onClick={() => this.props.history.push(ProceedToPayments)}
-        >
+        <Button type="primary" onClick={proceedToPayments}>
           Proceed To Payment
         </Button>
       </PaymentButtonWrapperStyled>

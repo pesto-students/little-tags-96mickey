@@ -74,3 +74,23 @@ export const HeaderUserLogo = styled.img`
   border-radius: 100%;
   margin-right: 10px;
 `;
+
+export const HeaderIconComponentWrapperStyled = styled.div`
+  position: relative;
+`;
+
+export const HeaderIconComponentBadgeStyled = styled.div`
+  position: absolute;
+  top: 0;
+  right: -10px;
+  border-radius: 100%;
+  width: 20px;
+  height: 20px;
+  color: white;
+  background: rgba(255, 0, 0, 0.85);
+`;
+
+export const HeaderIconComponentBadgeTextStyled = styled.div`
+  margin-left: 6px;
+  font-size: 15px;
+`;
