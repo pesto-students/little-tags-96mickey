@@ -7,6 +7,7 @@ export const ProductDetailsStyled = styled.div`
 `;
 
 export const ProductName = styled.div`
+  max-width: 50vw;
   font-size: ${(props) => props.theme.fontSizes.font_24};
 `;
 

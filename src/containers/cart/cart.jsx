@@ -38,7 +38,7 @@ class CartComponent extends Component {
       <CartWrapperStyled>
         <CartTitleWrapperStyled>
           <CartTitleStyled>Your Cart</CartTitleStyled>
-          <CartTitleStyled>{this.props.cart.total}</CartTitleStyled>
+          <CartTitleStyled>{this.props.cart.total.toFixed(2)}</CartTitleStyled>
         </CartTitleWrapperStyled>
 
         {renderCartItems(this.props.cart.addedItems)}

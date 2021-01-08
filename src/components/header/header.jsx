@@ -11,9 +11,9 @@ import {
   HeaderComponentInputWrapperStyled,
   HeaderLoginStyled,
   HeaderUserLogo,
-  HeaderIconComponentWrapperStyled,
-  HeaderIconComponentBadgeStyled,
-  HeaderIconComponentBadgeTextStyled,
+  CartCount,
+  CartWrapper,
+  CartIcon
 } from "./header.styled";
 
 // components
@@ -28,8 +28,8 @@ import { StyledLink } from "components/styled-link";
 
 export const Header = ({ isHome }) => {
   const isLoggedIn = useSelector((state) => state.user.isLoggedIn);
+  const {addedItems} = useSelector((state) => state.cart);
   const userDetails = useSelector((state) => state.user.userdetails);
-  const totalItems = useSelector((state) => state.cart.addedItems.length);
   const [isOpen, setIsOpen] = React.useState(false);
   const toggleDrawer = () => setIsOpen(!isOpen);
   const [scrollPosition, setScrollPosition] = React.useState(0);
@@ -88,17 +88,32 @@ export const Header = ({ isHome }) => {
         </HeaderComponentInputWrapperStyled>
 
         {isLoggedIn ? (
-          <HeaderLoginStyled
-            isHeaderInverse={isHeaderInverse}
-            isHomeRoute={isHome}
-          >
-            <HeaderUserLogo
-              src={userDetails.imageUrl}
-              alt="User Icon"
-              srcset=""
-            />
-            {userDetails.username}
-          </HeaderLoginStyled>
+          <>
+            <HeaderLoginStyled
+              isHeaderInverse={isHeaderInverse}
+              isHomeRoute={isHome}
+            >
+              <HeaderUserLogo
+                src={userDetails.imageUrl}
+                alt="User Icon"
+                srcset=""
+              />
+              {userDetails.username}
+            </HeaderLoginStyled>
+            <CartWrapper>
+              <CartIcon>
+              <IconComponent
+                name="fa-shopping-cart"
+                size="40px"
+                handleClick={() => history.push("/cart")}
+              />
+              </CartIcon>
+              {
+                addedItems && addedItems.length > 0 ? 
+                <CartCount>{addedItems.length}</CartCount> 
+                : ""}
+            </CartWrapper>  
+          </>
         ) : (
           <HeaderLoginStyled
             isHeaderInverse={isHeaderInverse}
@@ -112,20 +127,6 @@ export const Header = ({ isHome }) => {
             Log in / Sign up
           </HeaderLoginStyled>
         )}
-        <HeaderIconComponentWrapperStyled>
-          <IconComponent
-            name="fa-shopping-cart"
-            size="40px"
-            handleClick={() => history.push("/cart")}
-          />
-          {totalItems && (
-            <HeaderIconComponentBadgeStyled>
-              <HeaderIconComponentBadgeTextStyled>
-                {totalItems}
-              </HeaderIconComponentBadgeTextStyled>
-            </HeaderIconComponentBadgeStyled>
-          )}
-        </HeaderIconComponentWrapperStyled>
         <ModalComponent />
       </HeaderStyled>
     </HeaderWrapperStyled>
