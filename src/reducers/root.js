@@ -1,6 +1,10 @@
-import { combineReducers } from 'redux';
-import simpleReducer from './example';
+import { combineReducers } from "redux";
+import user from "./user.reducer";
+import cart from "./cart.reducer";
+import address from './address.reducer';
 
 export const rootReducer = combineReducers({
-  simpleReducer
+  user,
+  cart,
+  address
 });

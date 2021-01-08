@@ -1,33 +1,21 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Route, Switch } from "react-router-dom";
-import { NotFound, Header, Footer } from "components";
+import { NotFound, Header, Footer, ThankYou } from "components";
 import { connect } from "react-redux";
 import { simpleAction } from "./actions";
-import { Home } from "containers";
-
-const contactInfoData = [
-  { key: "Phone:", value: "(+91) 9876 543 210" },
-  {
-    key: "Address:",
-    value:
-      "1418 Riverwood Drive, Suite 3245 Cottonwood, CA 96052, United State",
-  },
-];
-
-const cardUrls = [
-  require("./assets/images/mastercard_inverse.svg").default,
-  require("./assets/images/jcb_inverse.svg").default,
-  require("./assets/images/paypal_inverse.svg").default,
-  require("./assets/images/visa_inverse.svg").default,
-  require("./assets/images/amazon_inverse.svg").default,
-];
-
-const categories = [
-  { key: "Accessories", value: "(45)", goTo: "/prod" },
-  { key: "Jeans", value: "(278)", goTo: "/prod" },
-  { key: "Tops", value: "(64)", goTo: "" },
-  { key: "Jactkets", value: "(3)", goTo: "" },
-];
+import {
+  Home,
+  ProductList,
+  ProductDescription,
+  Cart,
+  Payments,
+  Address
+} from "containers";
+import { contactInfoData, cardUrls } from "./constants/home.contants";
+import { categories } from "./constants/drawer.constants";
+import "./App.css";
+import { useLocation } from "react-router-dom";
+import { AddressList } from "components/address-list/address-list";
 
 const mapDispatchToProps = (dispatch) => ({
   simpleAction: () => dispatch(simpleAction()),
@@ -38,13 +26,29 @@ const mapStateToProps = (state) => ({
 });
 
 function App() {
+  const location = useLocation();
+  const [isHomeRoute, SetHomeRoute] = useState(false);
+
+  useEffect(() => {
+    location.pathname === "/" ? SetHomeRoute(true) : SetHomeRoute(false);
+  }, [location]);
+
   return (
     <div className="App">
-      <Header />
-      <Switch>
-        <Route path="/" component={Home} exact />
-        <Route component={NotFound} />
-      </Switch>
+      <Header isHome={isHomeRoute} />
+      <div className="main-section">
+        <Switch>
+          <Route path="/" component={Home} exact />
+          <Route path="/address/add" component={Address} exact />
+          <Route path="/address/list" component={AddressList} exact />
+          <Route path="/prod/:id/description" component={ProductDescription} />
+          <Route path="/prod/:type" component={ProductList} />
+          <Route path="/thanks" component={ThankYou} />
+          <Route path="/cart" component={Cart} />
+          <Route path="/payments" component={Payments} />
+          <Route component={NotFound} />
+        </Switch>
+      </div>
       <Footer {...{ contactInfoData, cardUrls, categories }} />
     </div>
   );

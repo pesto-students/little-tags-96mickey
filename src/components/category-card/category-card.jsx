@@ -1,18 +1,25 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 import {
   CategoryCardStyled,
   CategoryImage,
   CategoryInfo,
 } from "./category-card.styled";
+import { StyledLink } from "components";
 
 export const CategoryCard = (props) => {
   return (
-    <Link to={props.link}>
+    <StyledLink to={props.link}>
       <CategoryCardStyled>
         <CategoryImage src={props.image} />
         <CategoryInfo>{props.displayText}</CategoryInfo>
       </CategoryCardStyled>
-    </Link>
+    </StyledLink>
   );
+};
+
+CategoryCard.propTypes = {
+  link: PropTypes.string,
+  image: PropTypes.string,
+  displayText: PropTypes.string,
 };

@@ -2,44 +2,51 @@ import React from "react";
 
 // components
 import { CategoryCard } from "components/category-card/category-card";
+import ProductCarouselComponent from "./product-carousel";
 
+// constants
+import {
+  HomeCategoriesImageData,
+  MostInDemandSectionTitle,
+} from "./../../constants/home.contants";
 // styles
 import {
   ProductSectionComponentTitleStyled,
-  ProductSectionCategoryImageStyled,
-  ProductSectionCategoryWrapperStyled,
+  HomeBannerProductImages,
+  ProductSectionRecordStyledWrapper,
 } from "./product-section.component.styled";
 
-const renderCategories = (data) => (
-  <ProductSectionCategoryWrapperStyled>
-    {data.map((category, index) => {
-      return (
-        <ProductSectionCategoryImageStyled
-          width={category.img.offsetWidth}
-          height={category.img.offsetHeight}
-        >
-          <CategoryCard
-            key={`ProductSectionCategory-${index}`}
-            displayText={category.label}
-            image={category.img}
-            link={category.goTo}
-          />
-        </ProductSectionCategoryImageStyled>
-      );
-    })}
-  </ProductSectionCategoryWrapperStyled>
-);
-
-function ProductSectionComponent({
-  productData: { title, categories },
-  handleCategoryClick,
-}) {
+function ProductSectionComponent() {
   return (
-    <ProductSectionComponentTitleStyled>
-      {title}
-      {renderCategories(categories, handleCategoryClick)}
-    </ProductSectionComponentTitleStyled>
+    <>
+      <HomeBannerProductImages>
+        <div className="container-fluid">
+          <div class="row">
+            {HomeCategoriesImageData.map((product, index) => (
+              <ProductSectionRecordStyledWrapper
+                className="col-lg-4"
+                key={`ProductSectionComponent-${index}`}
+              >
+                <CategoryCard
+                  link={product.goTo}
+                  image={product.imgUrl}
+                  displayText={product.text}
+                />
+              </ProductSectionRecordStyledWrapper>
+            ))}
+          </div>
+        </div>
+      </HomeBannerProductImages>
+
+      <ProductSectionComponentTitleStyled>
+        {MostInDemandSectionTitle}
+      </ProductSectionComponentTitleStyled>
+
+      <ProductCarouselComponent />
+    </>
   );
 }
 
 export default ProductSectionComponent;
+
+ProductSectionComponent.propTypes = {};
