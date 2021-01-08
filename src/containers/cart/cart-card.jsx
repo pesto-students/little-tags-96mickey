@@ -42,7 +42,8 @@ function CartItemCard({ item: { id, image, price, quantity, size, title } }) {
           <CartItemCardQuantityStyled>
             {`Quantity: `}
             <QuantitySelector
-              minValue={quantity}
+              minValue={1}
+              value={quantity}
               onChange={setSelectedQuantity}
             />
           </CartItemCardQuantityStyled>

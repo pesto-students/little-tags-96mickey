@@ -94,3 +94,27 @@ export const HeaderIconComponentBadgeTextStyled = styled.div`
   margin-left: 6px;
   font-size: 15px;
 `;
+  
+export const CartWrapper = styled.div`
+  display: inline-block;
+  height: 40px;
+  min-width: 30px;
+`;
+
+export const CartCount = styled.div`
+  position: relative;
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  bottom: 4px;
+  left: 30px;
+  background-color: red;
+  display: flex;
+  justify-content: space-around;
+  font-size: 14px;
+  color: white
+`;
+
+export const CartIcon = styled.div`
+  position: absolute;
+`;

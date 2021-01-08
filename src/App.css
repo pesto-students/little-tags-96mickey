@@ -4,3 +4,8 @@
     justify-content: space-between;
     height: 100vh;
 }
+
+.radio-input {
+    width: 100px;
+    height: 100px;
+}

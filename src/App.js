@@ -9,11 +9,13 @@ import {
   ProductDescription,
   Cart,
   Payments,
+  Address
 } from "containers";
 import { contactInfoData, cardUrls } from "./constants/home.contants";
 import { categories } from "./constants/drawer.constants";
 import "./App.css";
 import { useLocation } from "react-router-dom";
+import { AddressList } from "components/address-list/address-list";
 
 const mapDispatchToProps = (dispatch) => ({
   simpleAction: () => dispatch(simpleAction()),
@@ -37,6 +39,8 @@ function App() {
       <div className="main-section">
         <Switch>
           <Route path="/" component={Home} exact />
+          <Route path="/address/add" component={Address} exact />
+          <Route path="/address/list" component={AddressList} exact />
           <Route path="/prod/:id/description" component={ProductDescription} />
           <Route path="/prod/:type" component={ProductList} />
           <Route path="/thanks" component={ThankYou} />

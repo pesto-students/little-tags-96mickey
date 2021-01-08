@@ -1,6 +1,5 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { EMPTY_CART } from "./../../reducers/types.constants";
 // constants
 import {
   Title,
@@ -8,7 +7,6 @@ import {
   PaymentOptionConfig,
   Address,
   PhoneNo,
-  ProceedToPayments,
 } from "./../../constants/payments.contants";
 
 // styles
@@ -25,20 +23,24 @@ import {
 
 // components
 import Button from "./../../components/button/button.component";
+import { useHistory } from "react-router-dom";
+import { CLEAR_CART } from "reducers/types.constants";
 
 export function Payments(props) {
   const name = useSelector((state) => state.user.name);
   const dispatch = useDispatch();
+  const history = useHistory();
+
   const setPaymentMode = (event) => {
     console.log(event.target.value);
   };
 
-  const proceedToPayments = () => {
-    props.history.push(ProceedToPayments);
+  const paymentDone = () => {
     dispatch({
-      type: EMPTY_CART,
+      type: CLEAR_CART
     });
-  };
+    history.push("/thanks");
+  }
 
   return (
     <div style={{ textAlign: "center" }}>
@@ -70,11 +72,15 @@ export function Payments(props) {
         </main>
       </PaymentOptionWrapperStyled>
 
-      <PaymentButtonWrapperStyled>
-        <Button type="primary" onClick={proceedToPayments}>
-          Proceed To Payment
-        </Button>
-      </PaymentButtonWrapperStyled>
+
+        <PaymentButtonWrapperStyled>
+          <Button
+            type="primary"
+            onClick={paymentDone}
+          >
+            Proceed To Payment
+          </Button>
+        </PaymentButtonWrapperStyled>
     </div>
   );
 }

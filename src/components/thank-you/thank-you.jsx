@@ -2,9 +2,6 @@ import { StyledLink } from "components/styled-link";
 import React from "react";
 import "./thank-you.css";
 
-// components
-import Button from "./../button/button.component";
-
 export const ThankYou = () => {
   return (
     <div className="text-center">
@@ -39,7 +36,7 @@ export const ThankYou = () => {
       <hr />
       <p className="lead">
         <StyledLink className="btn btn-lg" to="/">
-          <Button type="ghost">Continue to homepage</Button>
+          <button className="btn btn-primary btn-lg" type="ghost">Continue to homepage</button>
         </StyledLink>
       </p>
     </div>
