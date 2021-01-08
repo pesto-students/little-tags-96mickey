@@ -23,7 +23,6 @@ export const HeaderWrapperStyled = styled.div`
 `;
 
 export const HeaderStyled = styled.div`
-  width: 100%;
   background-color: transparent;
   margin: 25px 45px;
   display: flex;

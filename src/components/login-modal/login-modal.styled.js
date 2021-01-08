@@ -19,3 +19,9 @@ export const ModalSubTitle = styled.div`
 export const ModalIconComponentWrapper = styled.span`
   margin-right: 20px;
 `;
+
+export const ModalIconWrapperStyled = styled.div`
+  position: absolute;
+  top: 10px;
+  right: 20px;
+`;
