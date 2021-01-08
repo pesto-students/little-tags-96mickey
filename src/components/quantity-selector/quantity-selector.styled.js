@@ -1,18 +1,18 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-const styleDefaults = {  
-  fieldWidth: '60px',
-  fieldHeight: '22px',
-  fieldBorder: '1px solid #ccc',
-  fieldBorderRadius: '2px',
-  fieldBackground: '#fff',
-  buttonWidth: '22px',
-  buttonHeight: '22px',
-  buttonColor: 'black',
-  buttonBorder: '1px solid #ccc',
-  buttonBorderRadius: '2px',
-  buttonBackground: '#f1f1f1',
-}
+const styleDefaults = {
+  fieldWidth: "60px",
+  fieldHeight: "22px",
+  fieldBorder: "1px solid #ccc",
+  fieldBorderRadius: "2px",
+  fieldBackground: "#fff",
+  buttonWidth: "22px",
+  buttonHeight: "22px",
+  buttonColor: "black",
+  buttonBorder: "1px solid #ccc",
+  buttonBorderRadius: "2px",
+  buttonBackground: "#f1f1f1",
+};
 
 export const Wrapper = styled.div`
   margin-bottom: 20px;
@@ -32,7 +32,7 @@ export const Wrapper = styled.div`
     &:first-child {
       border: ${styleDefaults.buttonBorder};
       &:before {
-        content: '';
+        content: "";
         display: block;
         width: 10px;
         height: 1px;
@@ -46,7 +46,7 @@ export const Wrapper = styled.div`
     &:last-child {
       border: ${styleDefaults.buttonBorder};
       &:before {
-        content: '';
+        content: "";
         display: block;
         width: 10px;
         height: 1px;
@@ -57,7 +57,7 @@ export const Wrapper = styled.div`
         transform: translate(-50%, -50%);
       }
       &:after {
-        content: '';
+        content: "";
         display: block;
         width: 1px;
         height: 10px;

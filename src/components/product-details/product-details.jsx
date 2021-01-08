@@ -9,8 +9,9 @@ import {
   ProductName,
   ProductPrice,
   ProductDescription,
-  ProductDetailsButtonWrapperStyled,
+  // ProductDetailsButtonWrapperStyled,
   ProductDetailsIconWrapperStyled,
+  ProductDetailsButtonWrapperStyled,
 } from "./product-details.styled";
 
 // constants
@@ -74,16 +75,17 @@ export const ProductDetails = ({ product }) => {
         isSizeEmpty={isSizeEmpty}
       />
       <QuantitySelector minValue={1} onChange={setSelectedQuantity} />
-
-      <Button onClick={addToCart}>
-        <ProductDetailsIconWrapperStyled>
-          <IconComponent name="fa-shopping-cart" color="white" />
-        </ProductDetailsIconWrapperStyled>
-        Add to Cart
-      </Button>
       <ProductDetailsButtonWrapperStyled>
-        <Button onClick={() => addToCart(true)}>Proceed to Checkout</Button>
+        <Button onClick={addToCart}>
+          <ProductDetailsIconWrapperStyled>
+            <IconComponent name="fa-shopping-cart" color="white" />
+          </ProductDetailsIconWrapperStyled>
+          Add to Cart
+        </Button>
       </ProductDetailsButtonWrapperStyled>
+      {/* <ProductDetailsButtonWrapperStyled>
+        <Button onClick={() => addToCart(true)}>Proceed to Checkout</Button>
+      </ProductDetailsButtonWrapperStyled> */}
     </ProductDetailsStyled>
   );
 };
