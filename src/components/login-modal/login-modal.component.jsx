@@ -17,7 +17,7 @@ import {
 import IconComponent from "./../icon-component/icon-component";
 
 Modal.setAppElement("#root");
-const ModalContainer = ({ onClose }) => {
+const ModalContainer = () => {
   const isLoginModalOpen = useSelector((state) => state.user.isLoginModalOpen);
   const dispatch = useDispatch();
 
@@ -25,8 +25,17 @@ const ModalContainer = ({ onClose }) => {
     console.log(error);
   };
 
-  const facebookResponse = (response) => {
-    console.log(response);
+  const facebookResponse = ({ name, email, picture, accessToken }) => {
+    dispatch({
+      type: "LOGGED_IN",
+      payload: {
+        username: name,
+        email,
+        imageUrl: picture?.data?.url,
+        tokenId: accessToken,
+      },
+    });
+    closeLoginModal();
   };
 
   const googleResponse = ({

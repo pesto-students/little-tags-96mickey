@@ -24,8 +24,9 @@ export const HeaderWrapperStyled = styled.div`
 
 export const HeaderStyled = styled.div`
   background-color: transparent;
-  margin: 25px 45px;
+  padding: 25px 45px;
   display: flex;
+  justify-content: space-between;
   align-items: center;
 `;
 

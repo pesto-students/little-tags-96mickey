@@ -5,6 +5,7 @@ import {
   CartWrapperStyled,
   CartTitleStyled,
   CartTitleWrapperStyled,
+  CartImageWrapperStyled,
 } from "./cart.styled";
 
 const renderCartItems = (Items) =>
@@ -18,17 +19,23 @@ class CartComponent extends Component {
   state = {};
 
   render() {
-    return (
-      <div>
-        <CartWrapperStyled>
-          <CartTitleWrapperStyled>
-            <CartTitleStyled>Your Cart</CartTitleStyled>
-            <CartTitleStyled>{this.props.cart.total}</CartTitleStyled>
-          </CartTitleWrapperStyled>
+    return this.props.cart.addedItems.length === 0 ? (
+      <CartImageWrapperStyled>
+        <img
+          src={require("./../../assets/images/empty-cart.png").default}
+          alt=""
+          srcset=""
+        />
+      </CartImageWrapperStyled>
+    ) : (
+      <CartWrapperStyled>
+        <CartTitleWrapperStyled>
+          <CartTitleStyled>Your Cart</CartTitleStyled>
+          <CartTitleStyled>{this.props.cart.total}</CartTitleStyled>
+        </CartTitleWrapperStyled>
 
-          {renderCartItems(this.props.cart.addedItems)}
-        </CartWrapperStyled>
-      </div>
+        {renderCartItems(this.props.cart.addedItems)}
+      </CartWrapperStyled>
     );
   }
 }

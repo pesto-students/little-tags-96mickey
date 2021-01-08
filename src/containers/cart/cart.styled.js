@@ -65,3 +65,7 @@ export const CartTitleWrapperStyled = styled.div`
   justify-content: space-between;
   margin-bottom: 20px;
 `;
+
+export const CartImageWrapperStyled = styled.div`
+  text-align: center;
+`;
