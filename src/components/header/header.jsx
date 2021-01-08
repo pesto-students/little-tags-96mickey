@@ -1,6 +1,6 @@
 // vendor
 import React from "react";
-import { connect, useSelector } from "react-redux";
+import { connect, useSelector, useDispatch } from "react-redux";
 
 //styles
 import {
@@ -26,13 +26,13 @@ export const Header = ({ isHome }) => {
   const isLoggedIn = useSelector((state) => state.user.isLoggedIn);
   const userDetails = useSelector((state) => state.user.userdetails);
   const [isOpen, setIsOpen] = React.useState(false);
-  const [isOpenModalContainer, setModal] = React.useState(false);
   const toggleDrawer = () => setIsOpen(!isOpen);
   const [scrollPosition, setScrollPosition] = React.useState(0);
   const handleScroll = () => {
     const position = window.pageYOffset;
     setScrollPosition(position);
   };
+  const dispatch = useDispatch();
 
   React.useEffect(() => {
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -41,8 +41,6 @@ export const Header = ({ isHome }) => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-
-  const toggleModal = () => setModal(!isOpenModalContainer);
 
   const handleInputChange = (value) => {
     console.log(value);
@@ -99,12 +97,16 @@ export const Header = ({ isHome }) => {
           <HeaderLoginStyled
             isHeaderInverse={isHeaderInverse}
             isHomeRoute={isHome}
-            onClick={toggleModal}
+            onClick={() =>
+              dispatch({
+                type: "OPEN_LOGIN_MODAL",
+              })
+            }
           >
             Log in / Sign up
           </HeaderLoginStyled>
         )}
-        <ModalComponent isOpen={isOpenModalContainer} onClose={toggleModal} />
+        <ModalComponent />
       </HeaderStyled>
     </HeaderWrapperStyled>
   );

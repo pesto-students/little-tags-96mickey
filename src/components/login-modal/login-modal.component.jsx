@@ -2,8 +2,7 @@ import Modal from "react-modal";
 import React from "react";
 import FacebookLogin from "react-facebook-login";
 import { GoogleLogin } from "react-google-login";
-import { useDispatch } from "react-redux";
-
+import { useDispatch, useSelector } from "react-redux";
 import config from "./../../config.json";
 
 // styles
@@ -11,13 +10,15 @@ import {
   ModalTitle,
   ModalSubTitle,
   ModalIconComponentWrapper,
+  ModalIconWrapperStyled,
 } from "./login-modal.styled";
 
 // components
 import IconComponent from "./../icon-component/icon-component";
 
 Modal.setAppElement("#root");
-const ModalContainer = ({ isOpen, onClose }) => {
+const ModalContainer = ({ onClose }) => {
+  const isLoginModalOpen = useSelector((state) => state.user.isLoginModalOpen);
   const dispatch = useDispatch();
 
   const onFailure = (error) => {
@@ -41,13 +42,19 @@ const ModalContainer = ({ isOpen, onClose }) => {
         tokenId,
       },
     });
-    onClose();
+    closeLoginModal();
+  };
+
+  const closeLoginModal = () => {
+    dispatch({
+      type: "CLOSE_LOGIN_MODAL",
+    });
   };
 
   return (
     <Modal
-      isOpen={isOpen}
-      shouldCloseOnOverlayClick={false}
+      isOpen={isLoginModalOpen}
+      shouldCloseOnOverlayClick={true}
       style={{
         overlay: {
           backgroundColor: "rgb(128,128,128, 0.8)",
@@ -66,6 +73,13 @@ const ModalContainer = ({ isOpen, onClose }) => {
     >
       <ModalTitle>Log in / Sign up</ModalTitle>
       <ModalSubTitle>Log in / Sign up using your</ModalSubTitle>
+      <ModalIconWrapperStyled>
+        <IconComponent
+          color="black"
+          name="fa-times"
+          handleClick={closeLoginModal}
+        />
+      </ModalIconWrapperStyled>
       <FacebookLogin
         appId={config.FACEBOOK_APP_ID}
         autoLoad={false}

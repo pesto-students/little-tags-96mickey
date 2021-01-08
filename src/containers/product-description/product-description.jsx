@@ -33,9 +33,7 @@ export const ProductDescription = (props) => {
     <div>
     <ProductDescriptionStyled>
       <Slider slides={product.images} />
-      <ProductDetails
-        product={product}
-      />
+      <ProductDetails product={product} />
     </ProductDescriptionStyled>
     <section className="product-section">
       <ProductDiscoverTitle>Discover more categories</ProductDiscoverTitle>

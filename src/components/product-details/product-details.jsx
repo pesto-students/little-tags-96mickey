@@ -1,68 +1,80 @@
-import Button from 'components/button/button.component';
-import { SizeSelector, QuantitySelector } from 'components';
-import React, { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { 
-    ProductDetailsStyled, 
-    ProductName, 
-    ProductPrice,
-    ProductDescription,
-    AddToCartWrapper,
-    NotLoggedIn
-} from './product-details.styled';
-import { ADD_TO_CART } from 'reducers/types.constants';
-import { GHOST } from '../../constants';
+import Button from "components/button/button.component";
+import { SizeSelector, QuantitySelector } from "components";
+import React, { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  ProductDetailsStyled,
+  ProductName,
+  ProductPrice,
+  ProductDescription,
+  ProductDetailsButtonWrapperStyled,
+  ProductDetailsIconWrapperStyled,
+} from "./product-details.styled";
+import { ADD_TO_CART, OPEN_LOGIN_MODAL } from "reducers/types.constants";
+import IconComponent from "components/icon-component/icon-component";
+import { useHistory } from "react-router-dom";
 
-export const ProductDetails = (props) => {
-    const [selectedSize, setSelectedSize] = useState();
-    const [selectedQuantity, setSelectedQuantity] = useState(1);
-    const [isSizeEmpty, setIsSetSizeEmpty] = useState(false);
+export const ProductDetails = ({ product }) => {
+  const history = useHistory();
+  const [selectedSize, setSelectedSize] = useState();
+  const [selectedQuantity, setSelectedQuantity] = useState(1);
+  const [isSizeEmpty, setIsSetSizeEmpty] = useState(false);
 
-    const {product} = props;
-    const isLoggedIn = useSelector((state) => state.user.isLoggedIn);
-    const dispatch = useDispatch();
+  const isLoggedIn = useSelector((state) => state.user.isLoggedIn);
 
-    const onSizeSelect = (size) => {
-        setSelectedSize(size);
-        setIsSetSizeEmpty(false);
+  const dispatch = useDispatch();
+
+  const onSizeSelect = (size) => {
+    setSelectedSize(size);
+    setIsSetSizeEmpty(false);
+  };
+
+  const addToCart = (isProceedToCheckout) => {
+    if (!isLoggedIn) {
+      dispatch({
+        type: OPEN_LOGIN_MODAL,
+      });
+      return;
     }
-
-    const addToCart = () => {
-        if(!selectedSize) {
-            setIsSetSizeEmpty(true);
-            return;
-        }
-        dispatch({
-          type: ADD_TO_CART,
-          payload: {
-            ...product,
-            quantity: selectedQuantity,
-            size: selectedSize
-          },
-        });
+    if (!selectedSize) {
+      alert("Please select the size option");
+      setIsSetSizeEmpty(true);
+      return;
     }
+    dispatch({
+      type: ADD_TO_CART,
+      payload: {
+        ...product,
+        quantity: selectedQuantity,
+        size: selectedSize,
+      },
+    });
 
-    return (
-        <ProductDetailsStyled>
-            <ProductName>{product.title}</ProductName>
-            <ProductPrice>{product.price}</ProductPrice>
-            <ProductDescription>{product.description}</ProductDescription>
-                <SizeSelector 
-                    onSizeSelect={(size) => onSizeSelect(size)} 
-                    size={product.size} 
-                    selectedSize={selectedSize}
-                    isSizeEmpty={isSizeEmpty}
-                />
-            <QuantitySelector minValue={1} onChange={setSelectedQuantity} />
-            {
-            isLoggedIn ? (
-            <AddToCartWrapper>
-                <Button onClick={addToCart}>Add to Cart</Button>
-            </AddToCartWrapper>) :
-            <NotLoggedIn title="Please login to continue">
-                <Button type={GHOST}>Add to Cart</Button>
-            </NotLoggedIn>
-            }
-        </ProductDetailsStyled>
-    )
-}
+    isProceedToCheckout && history.push("/cart");
+  };
+
+  return (
+    <ProductDetailsStyled>
+      <ProductName>{product.title}</ProductName>
+      <ProductPrice>{product.price}</ProductPrice>
+      <ProductDescription>{product.description}</ProductDescription>
+      <SizeSelector
+        onSizeSelect={(size) => onSizeSelect(size)}
+        size={product.size}
+        selectedSize={selectedSize}
+        isSizeEmpty={isSizeEmpty}
+      />
+      <QuantitySelector minValue={1} onChange={setSelectedQuantity} />
+
+      <Button onClick={addToCart}>
+        <ProductDetailsIconWrapperStyled>
+          <IconComponent name="fa-shopping-cart" color="white" />
+        </ProductDetailsIconWrapperStyled>
+        Add to Cart
+      </Button>
+      <ProductDetailsButtonWrapperStyled>
+        <Button onClick={() => addToCart(true)}>Proceed to Checkout</Button>
+      </ProductDetailsButtonWrapperStyled>
+    </ProductDetailsStyled>
+  );
+};
