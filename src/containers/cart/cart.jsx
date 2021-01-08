@@ -6,7 +6,14 @@ import {
   CartTitleStyled,
   CartTitleWrapperStyled,
   CartImageWrapperStyled,
+  CartButtonWrapperStyled,
 } from "./cart.styled";
+
+// constants
+import { ProceedToPayments } from "./../../constants/cart.constants";
+
+// components
+import Button from "./../../components/button/button.component";
 
 const renderCartItems = (Items) =>
   Array.isArray(Items) &&
@@ -35,6 +42,15 @@ class CartComponent extends Component {
         </CartTitleWrapperStyled>
 
         {renderCartItems(this.props.cart.addedItems)}
+
+        <CartButtonWrapperStyled>
+          <Button
+            type="primary"
+            onClick={() => this.props.history.push(ProceedToPayments)}
+          >
+            Proceed
+          </Button>
+        </CartButtonWrapperStyled>
       </CartWrapperStyled>
     );
   }

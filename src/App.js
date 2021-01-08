@@ -3,7 +3,13 @@ import { Route, Switch } from "react-router-dom";
 import { NotFound, Header, Footer, ThankYou } from "components";
 import { connect } from "react-redux";
 import { simpleAction } from "./actions";
-import { Home, ProductList, ProductDescription, Cart } from "containers";
+import {
+  Home,
+  ProductList,
+  ProductDescription,
+  Cart,
+  Payments,
+} from "containers";
 import { contactInfoData, cardUrls } from "./constants/home.contants";
 import { categories } from "./constants/drawer.constants";
 import "./App.css";
@@ -35,6 +41,7 @@ function App() {
           <Route path="/prod/:type" component={ProductList} />
           <Route path="/thanks" component={ThankYou} />
           <Route path="/cart" component={Cart} />
+          <Route path="/payments" component={Payments} />
           <Route component={NotFound} />
         </Switch>
       </div>
