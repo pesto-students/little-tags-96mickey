@@ -10,7 +10,7 @@ import {
 } from "./cart.styled";
 
 // constants
-import { ProceedToPayments } from "./../../constants/cart.constants";
+import { AddressPath } from "./../../constants/cart.constants";
 
 // components
 import Button from "./../../components/button/button.component";
@@ -46,7 +46,7 @@ class CartComponent extends Component {
         <CartButtonWrapperStyled>
           <Button
             type="primary"
-            onClick={() => this.props.history.push(ProceedToPayments)}
+            onClick={() => this.props.history.push(AddressPath)}
           >
             Proceed
           </Button>

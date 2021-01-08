@@ -20,7 +20,7 @@ export const PaymentAddressWrapperStyled = styled.div`
   width: 351px;
   padding: 20px 80px 20px 40px;
   border-radius: 15px;
-  background-color: #f4f4f4;
+  background-color: ${props => props.isSelected ? "#A0FDB6": "#f4f4f4"};
   margin: auto;
 `;
 
