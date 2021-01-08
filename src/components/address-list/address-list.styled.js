@@ -17,3 +17,8 @@ export const ProceedButton = styled.div`
     margin: 20px 20px;
     width: 200px;
 `;
+
+export const AddressOption = styled.div`
+    cursor: pointer;
+    margin-bottom: 10px;
+`;

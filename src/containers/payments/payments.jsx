@@ -5,8 +5,6 @@ import {
   Title,
   ModeOfPaymentText,
   PaymentOptionConfig,
-  Address,
-  PhoneNo,
 } from "./../../constants/payments.contants";
 
 // styles
@@ -27,7 +25,7 @@ import { useHistory } from "react-router-dom";
 import { CLEAR_CART } from "reducers/types.constants";
 
 export function Payments(props) {
-  const name = useSelector((state) => state.user.name);
+  const {default: defaultAddress} = useSelector((state) => state.address);
   const dispatch = useDispatch();
   const history = useHistory();
 
@@ -46,9 +44,9 @@ export function Payments(props) {
     <div style={{ textAlign: "center" }}>
       <PaymentTitleStyled>{Title}</PaymentTitleStyled>
       <PaymentAddressWrapperStyled>
-        <PaymentNameStyled>{name || "John Doe"}</PaymentNameStyled>
-        <PaymentAddressStyled>{Address}</PaymentAddressStyled>
-        <PaymentPhoneNoStyled>{PhoneNo}</PaymentPhoneNoStyled>
+        <PaymentNameStyled>{`${defaultAddress.firstName} ${defaultAddress.lastName}`}</PaymentNameStyled>
+        <PaymentAddressStyled>{`${defaultAddress.line1}`}</PaymentAddressStyled>
+        <PaymentPhoneNoStyled>{defaultAddress.phone}</PaymentPhoneNoStyled>
       </PaymentAddressWrapperStyled>
 
       <PaymentOptionTitleStyled>{ModeOfPaymentText}</PaymentOptionTitleStyled>
