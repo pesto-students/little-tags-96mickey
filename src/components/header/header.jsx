@@ -1,6 +1,7 @@
 // vendor
 import React from "react";
 import { connect, useSelector, useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 
 //styles
 import {
@@ -33,6 +34,7 @@ export const Header = ({ isHome }) => {
     setScrollPosition(position);
   };
   const dispatch = useDispatch();
+  const history = useHistory();
 
   React.useEffect(() => {
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -106,6 +108,11 @@ export const Header = ({ isHome }) => {
             Log in / Sign up
           </HeaderLoginStyled>
         )}
+        <IconComponent
+          name="fa-shopping-cart"
+          size="40px"
+          handleClick={() => history.push("/cart")}
+        />
         <ModalComponent />
       </HeaderStyled>
     </HeaderWrapperStyled>
