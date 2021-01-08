@@ -1,6 +1,6 @@
 # Little Tags - An Online Clothing Store
 
-Live url ===> https://agitated-golick-7be346.netlify.app/
+Live url ===> https://blissful-shannon-08d81c.netlify.app/
 
 Dev url ===> https://nifty-davinci-9fcbab.netlify.app/
 
