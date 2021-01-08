@@ -19,12 +19,13 @@ export const ProductPrice = styled.div`
 `;
 
 export const ProductDescription = styled.div`
-  font-size: ${(props) => props.theme.fontSizes.font_12};
+  font-size: ${(props) => props.theme.fontSizes.font_18};
   max-width: 40vw;
 `;
 
 export const ProductDetailsButtonWrapperStyled = styled.div`
   margin-top: 20px;
+  width: 40%;
 `;
 
 export const ProductDetailsIconWrapperStyled = styled.div`
