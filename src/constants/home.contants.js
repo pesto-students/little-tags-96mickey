@@ -40,23 +40,23 @@ export const ProductData = [
       {
         label: "Womens Jacket",
         imgUrl: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
-        goTo: "/prod/t-shirts/1",
+        goTo: "/prod/1/description",
       },
       {
         label: "Jeans",
         imgUrl:
           "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg",
-        goTo: "/prod/t-shirts/2",
+        goTo: "/prod/2/description",
       },
       {
         label: "Backpacks",
         imgUrl: "https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg",
-        goTo: "/prod/t-shirts/3",
+        goTo: "/prod/3/description",
       },
       {
         label: "Jeans",
         imgUrl: "https://fakestoreapi.com/img/71YXzeOuslL._AC_UY879_.jpg",
-        goTo: "/prod/t-shirts/4",
+        goTo: "/prod/4/description",
       },
     ],
     caption: "Mens Clothing",
@@ -66,22 +66,22 @@ export const ProductData = [
       {
         label: "Womens Jacket",
         imgUrl: "https://fakestoreapi.com/img/51Y5NI-I5jL._AC_UX679_.jpg",
-        goTo: "/prod/t-shirts/15",
+        goTo: "/prod/15/description",
       },
       {
         label: "Womens Jacket",
         imgUrl: "https://fakestoreapi.com/img/81XH0e8fefL._AC_UY879_.jpg",
-        goTo: "/prod/t-shirts/16",
+        goTo: "/prod/16/description",
       },
       {
         label: "Womens Jacket",
         imgUrl: "https://fakestoreapi.com/img/71HblAHs5xL._AC_UY879_-2.jpg",
-        goTo: "/prod/t-shirts/17",
+        goTo: "/prod/17/description",
       },
       {
         label: "Womens Jacket",
         imgUrl: "https://fakestoreapi.com/img/51eg55uWmdL._AC_UX679_.jpg",
-        goTo: "/prod/t-shirts/19",
+        goTo: "/prod/19/description",
       },
     ],
     caption: "Womens Clothing",

@@ -69,3 +69,8 @@ export const CartTitleWrapperStyled = styled.div`
 export const CartImageWrapperStyled = styled.div`
   text-align: center;
 `;
+
+export const CartButtonWrapperStyled = styled.div`
+  width: 50%;
+  margin: 40px auto;
+`;
